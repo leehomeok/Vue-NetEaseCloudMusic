@@ -51,12 +51,16 @@
   }
   .lyric-container {
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 0;
     width: 100%;
     z-index: 10;
     list-style: none;
     text-align: center;
+
+  }
+  .lyric-container>div{
+    line-height: 2;
   }
   .slide-fade-enter-active,
   .slide-fade-leave-active

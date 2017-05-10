@@ -155,7 +155,7 @@
   .player-diskette {
     position: relative;
     flex-grow: 1;
-    /*justify-content: center;*/
+    justify-content: center;
     overflow: hidden;
   }
   .play-line {

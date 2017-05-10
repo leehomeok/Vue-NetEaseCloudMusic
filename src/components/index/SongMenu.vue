@@ -1,6 +1,5 @@
 <template>
-  <div>
-
+  <div class="my-list-component">
     <div class="top-banner clearfix">
       <div class="top-left">
         <img class="main_img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493827424958&di=259221c1a2ecef7b0a3f5a7a2bb25bea&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fuser%2F435%2F43594%2F13458253735efcf59ddeb7486b.jpg">

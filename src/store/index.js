@@ -48,7 +48,7 @@ var storeConfig = {
               context.commit('set_tabbar',object)
             },
           //  上一首
-            PRECONTROL({ dispatch, commit, state }) {
+          preControl({ dispatch, commit, state }) {
                 if (state.playStatus) {
                     commit('pauseControl')
                 }

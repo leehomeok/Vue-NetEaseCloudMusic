@@ -132,4 +132,6 @@
     background-image: url('../static/images/index/vn.png');
   }
   ul li{list-style: none;}
+  .my-list-component,.mv-list-component{margin-top:1.38rem;}
+  .ranking-list-component{margin-top:1.5rem;}
 </style>

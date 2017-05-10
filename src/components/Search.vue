@@ -1,11 +1,14 @@
 <template>
   <div class="flex search-component">
-    <div class="flex search-header primary-bg-color">
-      <icon-back></icon-back>
-      <div class="search-container">
-        <input class="search-input" placeholder="搜索音乐、歌手、歌词、用户" type="text" v-model="keyword">
+    <div class="container clearfix">
+      <SearchBar></SearchBar>
+      <div class="head-right">
+        <a class="block" @click="goBack()">
+            取消
+        </a>
       </div>
     </div>
+
     <div class="search-suggestion">
       <div class="flex artists-classification">
         <div class="icon-artist background"></div>
@@ -43,6 +46,8 @@
 <script>
   import IconBack from './common/IconBack.vue'
   import FootBar from './common/footTabBar.vue'
+  import SearchBar from './common/SearchBar.vue'
+
   export default{
     data () {
       return {
@@ -62,54 +67,31 @@
           if (index !==-1) {
             _this.searchHistory.splice(index, 1);
           }
-        }
+        },
+      goBack () {
+        this.$router.go(-1)
+      }
     },
     created () {
     },
     components: {
-      IconBack ,FootBar
+      IconBack ,FootBar,SearchBar
     }
   }
 </script>
 
 
 <style scoped>
+  .container{padding: 5px 10px;display: flex;justify-content:space-between}
+  .head-center{flex:5;}
+  .head-right{line-height: 30px;font-size: 14px;text-align: right;flex: 1;}
+  .header-center {width: 80%;float: left;}
+  .search_wrapper .search{left: 2px!important;}
   .search-component {
     height: 100%;
     flex-direction: column;
   }
-  .search-header {
-    padding-right: .25rem;
-    padding-left: .25rem;
-    height: 1rem;
-    flex-shrink: 0;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .search-container {
-    position: relative;
-    flex-grow: 1;
-    margin-left: 1.125rem;
-    height: 1.25rem;
-  }
-  .search-input
-  {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    line-height: 1.25rem;
-  }
-  .search-input {
-    z-index: 9;
-    padding: 0;
-    color: #fff;
-    height: 1.25rem;
-    background: none;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #fff;
-  }
+
   /*  搜索建议及历史  */
   .search-suggestion {
     flex-grow: 1;

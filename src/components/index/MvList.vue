@@ -1,5 +1,5 @@
 <template>
-  <div class="mv-list-component">
+  <div class="mv-list-component ">
     <swipe class="my-swipe" :auto="auto">
       <swipe-item class="slide" v-for="item in bannerList">
         <img class="slide-img" :src="item.pic">

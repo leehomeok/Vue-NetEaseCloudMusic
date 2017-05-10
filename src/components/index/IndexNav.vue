@@ -46,6 +46,10 @@
   }
   .tabs {
     background-color: #feffff;
+    position: fixed;
+    top:50px;
+    width: 100%;
+    z-index: 1000;
   }
   .tabs .tab-item {
     width: 25%;

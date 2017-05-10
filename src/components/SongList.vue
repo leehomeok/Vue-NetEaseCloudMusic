@@ -93,6 +93,7 @@
       return {
         songListInfo: {},
         creator: {},
+        tracks:[],
         songList: [],
         songlength:0
       }

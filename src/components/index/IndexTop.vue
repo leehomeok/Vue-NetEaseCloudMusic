@@ -56,8 +56,7 @@
     height: 1.25rem;
     background-image: url("../../../static/images/index/m5.png");
   }
-
-  .container{display:flex;justify-content: space-around;padding: 5px 0;background:#fff;}
+  .container{display:flex;justify-content: space-around;padding: 5px 0;background:#fff;position: fixed;top:0;width: 100%;z-index: 1001;}
 .icon{width: 32px;height: 32px;display: block;margin: 0 auto;}
 
 .mai{background:url(../../../static/images/find_music/MICROPHONE.png);}
