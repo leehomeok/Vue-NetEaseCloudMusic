@@ -14,8 +14,8 @@
 <img src="http://i2.muimg.com/591508/a3ff593a432a9376.png">
 <img src="http://i2.muimg.com/591508/5cc295ca272d1b2a.png">
 <img src="http://i2.muimg.com/591508/04ff04df95787cb0.png">
-<img src="//dn-cnode.qbox.me/FiK0aUegq6ZfF9vmafagOKAV_Jhs">
-<img src="//dn-cnode.qbox.me/Fgv2JcUUf7zAGOtSV_Bdbz5BtE52">
+<img src="http://a1.qpic.cn/psb?/V13MsdGY0Zybfg/ZwERT8BIFWWFisrnlMiF3cAwTGZh88CUlVjWDcTcrlU!/b/dGsBAAAAAAAA&bo=ygEsAwAAAAADB8Y!&rf=viewer_4&t=5">
+<img src="http://a3.qpic.cn/psb?/V13MsdGY0Zybfg/naZ1jLMLYAdJlBdPjhE4TG50EQfkRy8UxNILQoTrGVc!/b/dGoBAAAAAAAA&bo=pAHqAgAAAAADAGg!&rf=viewer_4&t=5">
 
 下一步完善登录，账号，我的音乐，朋友，搜索 等功能。
 
