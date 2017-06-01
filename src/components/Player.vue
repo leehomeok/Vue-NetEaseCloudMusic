@@ -19,6 +19,7 @@
     </div>
     <lyric></lyric>
     <div class="player-footer">
+      <Comment></Comment>
       <div class="flex player-timeline">
         <div class="player-timeline-time player-timeline-time-left">{{ songCurrentTime | transformTime}}</div>
         <slider class="slider-wrap"></slider>
@@ -43,6 +44,7 @@
   import Playlist from './Playlist.vue'
   import StackBlur from 'stackblur-canvas'
   import albumUrl from '../../static/images/player/album.png'
+  import Comment from  './common/commentBar.vue'
   export default{
     data () {
       return {
@@ -101,7 +103,7 @@
       this.albumDomElement = document.getElementById('album')
     },
     components: {
-      IconBack, Slider, Lyric, Playlist
+      IconBack, Slider, Lyric, Playlist,Comment
     }
   }
 </script>
@@ -260,7 +262,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom: 1rem;
+    bottom: .8rem;
     width: 100%;
   }
   .player-timeline-time {

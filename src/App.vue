@@ -32,7 +32,7 @@
     computed:{
       playing:function () {
         var url=window.location.href;
-        return  url.indexOf('player')>-1? this.isPlaying=true:this.isPlaying=false;
+        return  url.indexOf('play')>-1? this.isPlaying=true:this.isPlaying=false;
       }
 
     },
@@ -63,7 +63,6 @@
   body {
     background-color: #f2f4f5;
     font-size: 12px;
-    color: #303131;
   }
   html, body, #app {
     height: 100%;
@@ -73,6 +72,7 @@
     margin: 0;
     padding: 0;
   }
+  input{outline:none;}
   /*  主色调  */
   .primary-color {
     color: #d33a31;
@@ -134,4 +134,37 @@
   ul li{list-style: none;}
   .my-list-component,.mv-list-component{margin-top:1.38rem;}
   .ranking-list-component{margin-top:1.5rem;}
+  .container{border-color:#fff;}
+  .liked{background-image:url("../static/images/find_music/red_heart.png")!important; }
+  .page-account{background: #efefef;}
+  .page{padding-bottom: 45px;}
+  .page-header{border-bottom: .02rem solid #e6e6e6;background: #f8f8f8;}
+  .page-header p{line-height:40px;font-size: .32rem;color:#333; text-align: center}
+  .page-header .right-item,.inner-item{flex: 1;}
+  .flex-item{flex :2;}
+  .page-top{padding: .2rem;justify-content:space-between;border-bottom: .005rem solid #e6e6e6;background: #fff;}
+  .user-avatar{width: 1rem;height: 1rem;border-radius: 50%;margin-right: 10px;}
+  .user-name{padding: .2rem 0;}
+  .uname{margin-bottom: .1rem;font-size: 14px;color:#333;}
+  .user-level{border-radius: .3rem;border: 1px solid #cdcdcd;padding: .02rem;text-align: center;}
+  .sign{height:.3rem;justify-content: center;margin-top: .25rem;}
+  .sign-in{padding:.1rem .2rem .1rem 0.5rem; border: 1px #d81e06 solid ;border-radius: .3rem;position: relative;
+    height: .2rem;}
+  .icon{width: .32rem;height: .32rem;background-repeat: no-repeat;background-size: contain!important;}
+  .icon-point{  background-image:url(../static/images/find_music/icon-points.png) ; display: inline-block;
+    position: absolute; left: .1rem;top:.05rem; }
+  .sign-in span {line-height: .2rem;color:#d81e06;}
+  .signed{
+    padding:.1rem .2rem ;
+    border: 1px #cdcdcd solid ;border-radius: .3rem;
+    height: .2rem;
+  }
+  .page-top,.page-middle{background: #fff}
+  .page-middle{padding:.1rem 0;}
+  .page-middle>div{width:24.5%;text-align: center;border-right: .01rem solid #e6e6e6; }
+  .page-middle>div:last-child{border: 0;}
+  .item-title{color:#8a8a8a;margin-bottom: .02rem;}
+  .icon-pencil{display: block;background: url("../static/images/find_music/icon_pencil.png")no-repeat;width: .32rem; height: .32rem;background-size: contain;margin: 0 auto .02rem;}
+  .mint-tabbar{z-index: 10000;}
+
 </style>

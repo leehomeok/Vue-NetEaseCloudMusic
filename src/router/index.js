@@ -11,14 +11,11 @@ Vue.use(Router)
 //  异步加载非首页模块
 const Player = resolve => {
   //  require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
-  // （代码分块）
   require.ensure(['@/components/Player.vue'], () => {
     resolve(require('@/components/Player.vue'))
   })
 }
 const Play = resolve => {
-  //  require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
-  // （代码分块）
   require.ensure(['@/components/Play.vue'], () => {
     resolve(require('@/components/Play.vue'))
   })
@@ -26,6 +23,11 @@ const Play = resolve => {
 const MvPlayer = resolve => {
   require.ensure(['@/components/MvPlayer.vue'], () => {
     resolve(require('@/components/MvPlayer.vue'))
+  })
+}
+const Comment = resolve => {
+  require.ensure(['@/components/CommentPage.vue'], () => {
+    resolve(require('@/components/CommentPage.vue'))
   })
 }
 const MusicList = resolve => {
@@ -41,6 +43,21 @@ const Search = resolve => {
 const SongList = resolve => {
   require.ensure(['@/components/SongList.vue'], () => {
     resolve(require('@/components/SongList.vue'))
+  })
+}
+const MyMusic = resolve => {
+  require.ensure(['@/components/page/MyMusic.vue'], () => {
+    resolve(require('@/components/page/MyMusic.vue'))
+  })
+}
+const Friend = resolve => {
+  require.ensure(['@/components/page/Friend.vue'], () => {
+    resolve(require('@/components/page/Friend.vue'))
+  })
+}
+const Account = resolve => {
+  require.ensure(['@/components/page/Account.vue'], () => {
+    resolve(require('@/components/page/Account.vue'))
   })
 }
 
@@ -84,7 +101,7 @@ const router = new Router({
       component: Play
     },
     {
-      path: '/mvPlayer/:id',
+      path: '/mvPlayer/:mvid',
       name: 'mvPlayer',
       component: MvPlayer
     },
@@ -94,7 +111,7 @@ const router = new Router({
       component: MusicList
     },
     {
-      path: '/songList/:id',
+      path: '/songList/:song_id',
       name: 'SongList',
       component: SongList
     },
@@ -102,7 +119,27 @@ const router = new Router({
       path: '/search',
       name: 'Search',
       component: Search
-    }
+    },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: Comment
+    },
+    {
+      path: '/myMusic',
+      name: 'myMusic',
+      component: MyMusic
+    },
+    {
+      path: '/friend',
+      name: 'friend',
+      component: Friend
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account
+    },
   ]
 })
 

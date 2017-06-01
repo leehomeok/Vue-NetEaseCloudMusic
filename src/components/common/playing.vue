@@ -1,5 +1,5 @@
 <template>
-   <div class="music" v-bind:class="{'active': playStatus}">
+   <div @click="goPlay()" class="music" v-bind:class="{'active': playStatus}">
      <i ></i>
      <i ></i>
      <i ></i>
@@ -14,6 +14,13 @@
           return{
           }
     },
+    methods:{
+
+        goPlay(){
+          this.$router.push({ name: 'Play'})
+
+        }
+    },
     computed:{
           ...mapState (['playStatus'])
     }
@@ -21,7 +28,7 @@
 </script>
 <style>
   .music{width: 50px;height: 20px;margin:10px auto;position: relative;padding-left: -10px;}
-  .music i{width: 3px;position: absolute;bottom:0;background-color: #333;}
+  .music i{width: 2px;position: absolute;bottom:0;background-color: #333;}
   .music i:nth-of-type(1){left:0;height: 12px;}
   .music i:nth-of-type(2){left:8px;height:24px;}
   .music i:nth-of-type(3){left:16px;height: 12px;}

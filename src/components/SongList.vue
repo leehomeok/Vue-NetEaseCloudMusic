@@ -100,7 +100,7 @@
     },
     computed: {
       pId () {
-        return this.$route.params.id
+        return this.$route.params.song_id
       },
       playlist () {
         return this.$store.state.playlist

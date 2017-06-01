@@ -9,6 +9,7 @@ import storeConfig from './store/index'
 import filters from './filters/index'
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css';
+
 Vue.use(Mint);
 Vue.config.productionTip = false
 Vue.use(vuex)
@@ -44,4 +45,31 @@ Vue.filter('wan', function (value) {
 Vue.filter('abs', function (value) {
     if(isNaN(Math.abs(value)))  return 0;
     return Math.abs(value);
+})
+Vue.filter('time', function (value) {
+   value= +(value.toString().substr(0,10));
+   var result,
+      d= new Date( value * 1000),
+    Y = d.getFullYear()+ '年',
+    M = (d.getMonth() + 1 < 10 ? '0' + (d.getMonth() + 1) : d.getMonth() + 1) + '月',
+    D = d.getDate() + '日 ',
+    h = d.getHours()<10 ? '0'+ d.getHours() + ':' :  d.getHours() + ':' ,
+    m = d.getMinutes()<10? '0'+d.getMinutes() + ':': d.getMinutes() + ':',
+    s = d.getSeconds()<10 ? '0'+ d.getSeconds(): d.getSeconds();
+  result = Y + M + D ;
+  return result;
+})
+
+Vue.filter('datetime', function (value) {
+  value= +(value.toString().substr(0,10));
+  var result,
+    d= new Date( value * 1000),
+    Y = d.getFullYear()+ '年',
+    M = (d.getMonth() + 1 < 10 ? '0' + (d.getMonth() + 1) : d.getMonth() + 1) + '月',
+    D = d.getDate() + '日 ',
+    h = d.getHours()<10 ? '0'+ d.getHours() + ':' :  d.getHours() + ':' ,
+    m = d.getMinutes()<10? '0'+d.getMinutes() + ':': d.getMinutes() + ':',
+    s = d.getSeconds()<10 ? '0'+ d.getSeconds(): d.getSeconds();
+  result = Y + M + D + h +m + s;
+  return result;
 })

@@ -10,6 +10,7 @@
 
 
 <script>
+  import { mapState, mapActions, mapGetters } from 'vuex'
   import IndexTop from './index/IndexTop.vue'
   import IndexNav from './index/IndexNav.vue'
   import FooterPlayer from './common/FooterPlayer.vue'
@@ -23,7 +24,9 @@
     computed: {
       songMsg () {
         return this.$store.state.songMsg
-      }
+      },
+      ...mapState(['selected']),
+
     },
     components: {
       IndexTop, IndexNav, FooterPlayer,FootBar

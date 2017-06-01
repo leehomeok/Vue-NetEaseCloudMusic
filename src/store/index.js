@@ -36,8 +36,18 @@ var storeConfig = {
             },
             ranklist:[],
             DJlist:[],
+            comment: {
+              img_cover:'',
+              artist:'',
+              song_name:'',
+              song_id:0,
+              list:[]
+            },
         },
         actions: {
+          SET_COMMENT(context,payload){
+            context.commit('set_comment',payload)
+          },
           SET_DJ_LIST(context,payload){
             context.commit('set_dj_list',payload)
           },
@@ -237,6 +247,11 @@ var storeConfig = {
 
         },
         mutations: {
+          set_comment(state,object){
+              state.comment.img_cover=object.img_cover;
+              state.comment.artist=object.artist;
+              state.comment.song_name=object.song_name;
+          },
           set_rank_list(state,object){
               state.ranklist=object;
           },
@@ -299,7 +314,8 @@ var storeConfig = {
             setSongMsgIndex(state, index) { //  设置正在播放歌曲在列表的索引位置
                 state.songMsgIndex = index
             },
-            setPlayMode(state) { //  更改播放模式，
+          //  更改播放模式，
+            setPlayMode(state) {
                 //  三种：listCycle（列表循环），listRandom（列表随机）,singleCycle(单曲循环)
                 if (state.playMode === 'listCycle') {
                     state.playMode = 'listRandom'

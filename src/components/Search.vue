@@ -1,11 +1,14 @@
 <template>
   <div class="flex search-component">
     <div class="container clearfix">
-      <SearchBar></SearchBar>
+      <div class="head-center">
+        <div class="search_wrapper flex">
+          <i class="icon icon-sm icon-search "></i>
+          <input  v-on:keyup.13="search()" v-model="keyword" type="search" class="search-input" placeholder="搜索音乐、歌词、电台"/>
+        </div>
+      </div>
       <div class="head-right">
-        <a class="block" @click="goBack()">
-            取消
-        </a>
+        <a class="block" @click="goBack()">取消</a>
       </div>
     </div>
 
@@ -29,8 +32,9 @@
           <li class="keyword-hot-item">莫文蔚</li>
         </ul>
       </div>
+
       <ul class="search-history-list">
-        <li :key="item.id" class="flex search-history-item" v-for="item in searchHistory">
+        <li :key="item.id" class="flex search-history-item" v-for="item in searchList">
           <div class="search-history-icon-time background"></div>
           <div class="flex search-history-item-content">
             <div class="search-history-item-name">{{item.name}}</div>
@@ -52,27 +56,63 @@
     data () {
       return {
         keyword: '', //  搜索关键字,
-        searchHistory:[
-          {id:1,name:'龙卷风'},
-          {id:2,name:'演员'},
-          {id:3,name:'告白气球'}
-        ],
+        searchList:[ ],
 
       }
     },
     methods: {
-        removeHistory(i){
+        removeHistory(item){
           var _this = this;
-          var index = _this.searchHistory.indexOf(i);
-          if (index !==-1) {
-            _this.searchHistory.splice(index, 1);
-          }
+          var  index=_this.searchList.indexOf(item);
+               _this.searchList.splice(index, 1);
         },
+      search(){
+          var _this=this;
+          var isExist=false;
+        _this.searchList.forEach(function (item) {
+             if(item.name==_this.keyword){
+                 isExist=true;
+             }
+        })
+        if(isExist){
+
+        }else{
+          _this.searchList.push({id:_this.searchList.length+1, name:_this.keyword })
+        }
+      },
       goBack () {
-        this.$router.go(-1)
+          this.$router.push({name:"Index"})
+        //this.$router.go(-1)
+      }
+    },
+    computed:{
+      searchHistory(){
+
       }
     },
     created () {
+      var _this=this,
+        list= localStorage.getItem("searchList");
+      if(list){
+        _this.searchList=JSON.parse(list);
+      }else{
+
+      }
+    },
+    watch: {
+      searchHistory (newValue) {
+        if (newValue){
+
+        }
+      }
+    },
+    updated(){
+      const  searchHistory=JSON.stringify(this.searchList);
+      localStorage.setItem('searchList',searchHistory);
+      console.log('hehe');
+    },
+    beforeDestory(){
+
     },
     components: {
       IconBack ,FootBar,SearchBar
@@ -86,7 +126,7 @@
   .head-center{flex:5;}
   .head-right{line-height: 30px;font-size: 14px;text-align: right;flex: 1;}
   .header-center {width: 80%;float: left;}
-  .search_wrapper .search{left: 2px!important;}
+  .search_wrapper .search{left: 20px;}
   .search-component {
     height: 100%;
     flex-direction: column;
@@ -159,7 +199,7 @@
   }
   .search-history-item-content {
     flex-grow: 1;
-    height: 1rem;
+    height: .8rem;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e8e9ea;
@@ -176,4 +216,5 @@
     background: url("../../static/images/icon_remove.png")center center;
     background-size: contain;
   }
+  .icon-sm{left: 20px;}
 </style>

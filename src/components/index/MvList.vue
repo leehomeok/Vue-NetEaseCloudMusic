@@ -21,7 +21,7 @@
     <section class="clearfix" v-bind:key="DJ.id"  v-for="DJ in HotList">
       <cateTitle class="clearfix" :title="DJ.name"></cateTitle>
       <ul class="dj-type-list clearfix">
-        <li v-if="index<3" v-for="item ,index in DJ.list">
+        <li v-if="index<3" v-for="item ,index in DJ.list" v-bind:key="item.id">
           <img v-bind:src="item.picUrl">
           <p>{{item.name}}</p>
         </li>
@@ -31,7 +31,7 @@
 
     <cateTitle :title="'热门分类'"></cateTitle>
     <div class="dj-link clearfix">
-      <div class="dj-type-item" v-for="item in DjTypeList.hot">
+      <div class="dj-type-item" v-for="item in DjTypeList.hot" v-bind:key="item.id">
 
           <img v-bind:src="item.pic56x56Url"><span>{{item.name}}</span>
 
@@ -40,7 +40,7 @@
 
     <cateTitle :title="'更多分类'"></cateTitle>
     <div class="dj-link clearfix">
-      <div class="dj-type-item" v-for="item in DjTypeList.more">
+      <div class="dj-type-item" v-for="item in DjTypeList.more" v-bind:key="item.id">
 
           <img v-bind:src="item.pic56x56Url"><span style="display: inline-block">{{item.name}}</span>
 
@@ -581,7 +581,6 @@
           };
           new Promise((resolve, reject) => {
             Promise.all(L.map(item => {
-
               P(item.id).then(res => {
                   if(res.status==200){
                      item.list=res.data.djRadios;

@@ -8,7 +8,6 @@
             <span>{{ item.program.dj.brand }}</span><i class="icon-broad background"></i>
         </div>
         </div>
-
         <p class="song-list-name">{{ item.name }}</p>
       </li>
     </ul>
@@ -19,12 +18,6 @@
   import API from '../../api'
   var api =new API();
   export default{
-    props: {
-      id: {
-        type: Number,
-        required: true
-      }
-    },
     data () {
       return {
         componentWidth: 0, //  当前组件宽度

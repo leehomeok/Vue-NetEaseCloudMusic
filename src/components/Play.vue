@@ -20,6 +20,7 @@
     </div>
     <lyric></lyric>
     <div class="player-footer">
+      <Comment></Comment>
       <div class="flex player-timeline">
         <div class="player-timeline-time player-timeline-time-left">{{ songCurrentTime | transformTime}}</div>
         <slider class="slider-wrap"></slider>
@@ -45,9 +46,11 @@
   import Playlist from './Playlist.vue'
   import StackBlur from 'stackblur-canvas'
   import albumUrl from '../../static/images/player/album.png'
+  import Comment from  './common/commentBar.vue'
   export default{
     data () {
       return {
+        liked:false,
         showPlaylist: false,
         canvasDomElement: '', //  用于高斯模糊背景的canvas对象
         albumDomElement: '' //  封面专辑图片对象
@@ -105,7 +108,7 @@
       this.albumDomElement = document.getElementById('album')
     },
     components: {
-      IconBack, Slider, Lyric, Playlist
+      IconBack, Slider, Lyric, Playlist,Comment
     }
   }
 </script>
@@ -154,7 +157,7 @@
   }
   .player-diskette {
     position: relative;
-    flex-grow: 1;
+    height:6.5rem;
     justify-content: center;
     overflow: hidden;
   }
@@ -170,7 +173,7 @@
   .player-diskette-pole {
     position: absolute;
     top: -0.4rem;
-    left: 63%;
+    left: 61%;
     z-index: 9;
     margin-left: -0.8125rem;
     width: 2.02rem;
@@ -263,7 +266,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom: 1rem;
+    bottom: .8rem;
     width: 100%;
   }
   .player-timeline-time {

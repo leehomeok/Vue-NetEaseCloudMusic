@@ -39,13 +39,12 @@
     flex-shrink: 0;
     padding-right: .25rem;
     padding-left: .25rem;
-    height: 1.8rem;
+    height: 1.5rem;
     justify-content: center;
   }
   .lyric {
     position: relative;
     flex-grow: 1;
-    /*color: rgba(255, 255, 255, .8);*/
     color: #fff;
     line-height: 1rem; /*  16px  */
   }

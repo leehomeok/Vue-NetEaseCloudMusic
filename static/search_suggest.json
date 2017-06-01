@@ -1,0 +1,336 @@
+{
+  "result": {
+    "albums": [
+      {
+        "id": 35347475,
+        "name": "暧昧",
+        "artist": {
+          "id": 5781,
+          "name": "薛之谦",
+          "picUrl": "http://p1.music.126.net/cmky1_hu0S0vfFr6U_03Bg==/3427177755493494.jpg",
+          "alias": [],
+          "albumSize": 17,
+          "picId": 3427177755493494,
+          "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+          "img1v1": 0,
+          "trans": null
+        },
+        "publishTime": 1491840000007,
+        "size": 1,
+        "copyrightId": 14026,
+        "status": 0,
+        "picId": 18822539557778052
+      },
+      {
+        "id": 35430015,
+        "name": "我害怕",
+        "artist": {
+          "id": 5781,
+          "name": "薛之谦",
+          "picUrl": "http://p1.music.126.net/cmky1_hu0S0vfFr6U_03Bg==/3427177755493494.jpg",
+          "alias": [],
+          "albumSize": 17,
+          "picId": 3427177755493494,
+          "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+          "img1v1": 0,
+          "trans": null
+        },
+        "publishTime": 1493049600007,
+        "size": 1,
+        "copyrightId": 14026,
+        "status": 0,
+        "picId": 18828037115920684
+      }
+    ],
+    "artists": [
+      {
+        "id": 5781,
+        "name": "薛之谦",
+        "picUrl": "http://p1.music.126.net/cmky1_hu0S0vfFr6U_03Bg==/3427177755493494.jpg",
+        "alias": [],
+        "albumSize": 17,
+        "picId": 3427177755493494,
+        "img1v1Url": "http://p1.music.126.net/ULlwJ2drOfYv-f6-_7jGGQ==/3250156379592966.jpg",
+        "accountId": 97137413,
+        "img1v1": 3250156379592966,
+        "trans": null
+      }
+    ],
+    "songs": [
+      {
+        "id": 471385043,
+        "name": "暧昧",
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          }
+        ],
+        "album": {
+          "id": 35347475,
+          "name": "暧昧",
+          "artist": {
+            "id": 0,
+            "name": "",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          },
+          "publishTime": 1491840000007,
+          "size": 1,
+          "copyrightId": 14026,
+          "status": 0,
+          "picId": 18822539557778052
+        },
+        "duration": 312214,
+        "copyrightId": 14026,
+        "status": 0,
+        "alias": [],
+        "rtype": 0,
+        "ftype": 0,
+        "mvid": 0,
+        "fee": 0,
+        "rUrl": null
+      },
+      {
+        "id": 32507038,
+        "name": "演员",
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          }
+        ],
+        "album": {
+          "id": 3154175,
+          "name": "绅士",
+          "artist": {
+            "id": 0,
+            "name": "",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          },
+          "publishTime": 1433433600007,
+          "size": 3,
+          "copyrightId": 0,
+          "status": 1,
+          "picId": 2942293117852634
+        },
+        "duration": 261249,
+        "copyrightId": 0,
+        "status": 0,
+        "alias": [],
+        "rtype": 0,
+        "ftype": 0,
+        "mvid": 420144,
+        "fee": 0,
+        "rUrl": null
+      },
+      {
+        "id": 466122271,
+        "name": "高尚",
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          }
+        ],
+        "album": {
+          "id": 35288299,
+          "name": "高尚",
+          "artist": {
+            "id": 0,
+            "name": "",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          },
+          "publishTime": 1489680000007,
+          "size": 1,
+          "copyrightId": 14026,
+          "status": 0,
+          "picId": 19180980346582016
+        },
+        "duration": 318565,
+        "copyrightId": 14026,
+        "status": 0,
+        "alias": [],
+        "rtype": 0,
+        "ftype": 0,
+        "mvid": 5516708,
+        "fee": 0,
+        "rUrl": null
+      },
+      {
+        "id": 474567044,
+        "name": "我害怕",
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          }
+        ],
+        "album": {
+          "id": 35430015,
+          "name": "我害怕",
+          "artist": {
+            "id": 0,
+            "name": "",
+            "picUrl": null,
+            "alias": [],
+            "albumSize": 0,
+            "picId": 0,
+            "img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+            "img1v1": 0,
+            "trans": null
+          },
+          "publishTime": 1493049600007,
+          "size": 1,
+          "copyrightId": 14026,
+          "status": 0,
+          "picId": 18828037115920684
+        },
+        "duration": 248758,
+        "copyrightId": 14026,
+        "status": 0,
+        "alias": [],
+        "rtype": 0,
+        "ftype": 0,
+        "mvid": 0,
+        "fee": 0,
+        "rUrl": null
+      }
+    ],
+    "playlists": [
+      {
+        "id": 90469605,
+        "name": "薛之谦的听千百遍不腻",
+        "coverImgUrl": "http://p1.music.126.net/84fpayvYFQwMlPicnBgCiw==/7794437930359271.jpg",
+        "creator": null,
+        "subscribed": false,
+        "trackCount": 36,
+        "userId": 80627549,
+        "playCount": 2138273,
+        "bookCount": 30727,
+        "highQuality": false
+      },
+      {
+        "id": 1909092,
+        "name": "薛之谦",
+        "coverImgUrl": "http://p1.music.126.net/J9amdumIvLVTYi2hpKghrA==/7947270046270086.jpg",
+        "creator": null,
+        "subscribed": false,
+        "trackCount": 73,
+        "userId": 1513504,
+        "playCount": 2560633,
+        "bookCount": 56037,
+        "highQuality": false
+      },
+      {
+        "id": 384935346,
+        "name": "薛之谦 | 一个人能有多不正经就能有多深情",
+        "coverImgUrl": "http://p1.music.126.net/6o-X7gH7tgw7U8aWaNGTsA==/18806046881496646.jpg",
+        "creator": null,
+        "subscribed": false,
+        "trackCount": 66,
+        "userId": 82179192,
+        "playCount": 2603387,
+        "bookCount": 45750,
+        "highQuality": false
+      }
+    ],
+    "mvs": [
+      {
+        "id": 5516708,
+        "cover": "http://p3.music.126.net/xx2Ktn-Bq74baG5fW43E0w==/18607035278742556.jpg",
+        "name": "高尚",
+        "playCount": 2381572,
+        "briefDesc": "薛之谦搭档演员张俪出演新歌MV",
+        "desc": null,
+        "artistName": "薛之谦",
+        "artistId": 5781,
+        "duration": 389000,
+        "mark": 0,
+        "subed": false,
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "alias": [],
+            "transNames": null
+          }
+        ]
+      },
+      {
+        "id": 5499072,
+        "cover": "http://p4.music.126.net/PFg-FbnTxjPGbP515lbMGw==/19038043835039442.jpg",
+        "name": "独家专访薛之谦：做音乐做到神经质",
+        "playCount": 1234360,
+        "briefDesc": "",
+        "desc": null,
+        "artistName": "薛之谦",
+        "artistId": 5781,
+        "duration": 362000,
+        "mark": 0,
+        "subed": false,
+        "artists": [
+          {
+            "id": 5781,
+            "name": "薛之谦",
+            "alias": [],
+            "transNames": null
+          }
+        ]
+      }
+    ],
+    "order": [
+      "artists",
+      "songs",
+      "albums",
+      "mvs",
+      "playlists"
+    ]
+  },
+  "code": 200
+}

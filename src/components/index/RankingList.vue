@@ -2,11 +2,11 @@
   <div class="ranking-list-component">
     <CateTitle title="云音乐官方榜"></CateTitle>
     <div style="margin-top: 10px" >
-      <div class="clearfix" v-for="item in officialList" style="width: 100%" @click="play(item.rankId)">
-        <div style="float: left;">
+      <div  class="flex rk-list" v-for="item in officialList" style="width: 100%" @click="play(item.rankId)">
+        <div style="flex:1">
           <img :src="item.picUrl" style="width: 120px;">
-        </div>
-        <div style="margin-left: 15px;float: left;padding-top: 10px;">
+        </div >
+        <div style="flex:2; padding-left: 15px;padding-top: 10px;">
           <p class="top-three" v-for="(item,index) in item.tracks" v-if="index<3">{{index+1}}.{{item.name}}-{{item.artists[0].name}}</p>
         </div>
       </div>
@@ -30,6 +30,7 @@
   .global li:nth-child(3n){margin-right: 0;}
   .item-three{width: 33%;float: left;margin-right: 1px;margin-bottom: 10px;}
   .top-three{line-height: 24px;margin-bottom: 6px;}
+  .rk-list{overflow: hidden;}
 </style>
 <script>
   import axios from 'axios'
