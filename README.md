@@ -16,6 +16,8 @@
 <img src="http://i2.muimg.com/591508/04ff04df95787cb0.png">
 <img src="http://a1.qpic.cn/psb?/V13MsdGY0Zybfg/ZwERT8BIFWWFisrnlMiF3cAwTGZh88CUlVjWDcTcrlU!/b/dGsBAAAAAAAA&bo=ygEsAwAAAAADB8Y!&rf=viewer_4&t=5">
 <img src="http://a3.qpic.cn/psb?/V13MsdGY0Zybfg/naZ1jLMLYAdJlBdPjhE4TG50EQfkRy8UxNILQoTrGVc!/b/dGoBAAAAAAAA&bo=pAHqAgAAAAADAGg!&rf=viewer_4&t=5">
-
-下一步完善登录，账号，我的音乐，朋友，搜索 等功能。
+<img src="http://i1.piimg.com/591508/416c66605898c178.png">
+<img src="http://i1.piimg.com/591508/554a32a1e2575f0d.png">
+<img src="http://i1.piimg.com/591508/da32527a9cd88164.png">
+下一步完善登录，账号，我的音乐，搜索 等功能。
 
