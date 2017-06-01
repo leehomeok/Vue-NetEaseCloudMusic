@@ -26,11 +26,11 @@
          :videoSrc="isUndefined(item.obj.video)? '' :item.obj.video.urlInfo.url"
          :videoImgUrl="isUndefined(item.obj.video)? '': item.obj.video.coverUrl"
          :videoId="isUndefined(item.obj.video)? '': item.obj.video.vid"
-         :subTitle="isUndefined(item.rcmdInfo)? '': item.rcmdInfo.reason "
+
          :comment="item.info.commentCount"     :zan="item.info.likedCount"
          :share="item.info.shareCount"
       ></Dynamic>
-
+       <!-- :subTitle="isUndefined(item.rcmdInfo)? '': item.rcmdInfo.reason || '' "-->
      </div>
 
 
