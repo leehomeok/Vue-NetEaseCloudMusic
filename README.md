@@ -12,12 +12,12 @@
 <img src="http://i1.bvimg.com/591508/98e854c894b33bf0.png">
 <img src="http://i1.bvimg.com/591508/d23bb93c25754b79.png">
 <img src="http://i1.bvimg.com/591508/416c66605898c178.png">
-<img src="">
-<img src="">
-<img src="http://a1.qpic.cn/psb?/V13MsdGY0Zybfg/ZwERT8BIFWWFisrnlMiF3cAwTGZh88CUlVjWDcTcrlU!/b/dGsBAAAAAAAA&bo=ygEsAwAAAAADB8Y!&rf=viewer_4&t=5">
-<img src="http://a3.qpic.cn/psb?/V13MsdGY0Zybfg/naZ1jLMLYAdJlBdPjhE4TG50EQfkRy8UxNILQoTrGVc!/b/dGoBAAAAAAAA&bo=pAHqAgAAAAADAGg!&rf=viewer_4&t=5">
-<img src="http://i1.piimg.com/591508/416c66605898c178.png">
-<img src="http://i1.piimg.com/591508/554a32a1e2575f0d.png">
-<img src="http://i1.piimg.com/591508/da32527a9cd88164.png">
+<img src="http://i1.bvimg.com/591508/554a32a1e2575f0d.png">
+<img src="http://i1.bvimg.com/591508/da32527a9cd88164.png">
+<img src="http://i1.bvimg.com/591508/5cc295ca272d1b2a.png">
+<img src="http://i1.bvimg.com/591508/04ff04df95787cb0.png">
+<img src="http://i1.bvimg.com/591508/23a52e952b97a239.png">
+<img src="http://i1.bvimg.com/591508/3bb4001b7262877e.png">
+
 下一步完善登录，账号，我的音乐，搜索 等功能。
 
