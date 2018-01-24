@@ -7,13 +7,13 @@
 完成功能个性推荐，歌单，主播电台列表，排行榜，<br>
 听歌，上一首，下一首。
 
-<img src="http://i2.muimg.com/591508/9262e04c1d3c63a4.png">
-<img src="http://i2.muimg.com/591508/ce1db5a77fcf055d.png">
-<img src="http://i2.muimg.com/591508/98e854c894b33bf0.png">
-<img src="http://i2.muimg.com/591508/d23bb93c25754b79.png">
-<img src="http://i2.muimg.com/591508/a3ff593a432a9376.png">
-<img src="http://i2.muimg.com/591508/5cc295ca272d1b2a.png">
-<img src="http://i2.muimg.com/591508/04ff04df95787cb0.png">
+<img src="http://i1.bvimg.com/591508/9262e04c1d3c63a4.png">
+<img src="http://i1.bvimg.com/591508/ce1db5a77fcf055d.png">
+<img src="http://i1.bvimg.com/591508/98e854c894b33bf0.png">
+<img src="http://i1.bvimg.com/591508/d23bb93c25754b79.png">
+<img src="http://i1.bvimg.com/591508/416c66605898c178.png">
+<img src="">
+<img src="">
 <img src="http://a1.qpic.cn/psb?/V13MsdGY0Zybfg/ZwERT8BIFWWFisrnlMiF3cAwTGZh88CUlVjWDcTcrlU!/b/dGsBAAAAAAAA&bo=ygEsAwAAAAADB8Y!&rf=viewer_4&t=5">
 <img src="http://a3.qpic.cn/psb?/V13MsdGY0Zybfg/naZ1jLMLYAdJlBdPjhE4TG50EQfkRy8UxNILQoTrGVc!/b/dGoBAAAAAAAA&bo=pAHqAgAAAAADAGg!&rf=viewer_4&t=5">
 <img src="http://i1.piimg.com/591508/416c66605898c178.png">
