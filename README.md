@@ -7,17 +7,17 @@
 完成功能个性推荐，歌单，主播电台列表，排行榜，<br>
 听歌，上一首，下一首。
 
-<img src="http://i1.bvimg.com/591508/9262e04c1d3c63a4.png">
-<img src="http://i1.bvimg.com/591508/ce1db5a77fcf055d.png">
-<img src="http://i1.bvimg.com/591508/98e854c894b33bf0.png">
-<img src="http://i1.bvimg.com/591508/d23bb93c25754b79.png">
-<img src="http://i1.bvimg.com/591508/416c66605898c178.png">
-<img src="http://i1.bvimg.com/591508/554a32a1e2575f0d.png">
-<img src="http://i1.bvimg.com/591508/da32527a9cd88164.png">
-<img src="http://i1.bvimg.com/591508/5cc295ca272d1b2a.png">
-<img src="http://i1.bvimg.com/591508/04ff04df95787cb0.png">
-<img src="http://i1.bvimg.com/591508/23a52e952b97a239.png">
-<img src="http://i1.bvimg.com/591508/3bb4001b7262877e.png">
+<img src="http://img1.ph.126.net/8RS8bIgNAukaFw7O6Y4WDQ==/6608259496494008986.png">
+<img src="http://img1.ph.126.net/otoZF2otVDiZ0nrH1OKfEQ==/6631702183912002460.png">
+<img src="http://img0.ph.126.net/3PD0X9VfZ5gisshzC4mi9Q==/3271020704454850563.png">
+<img src="http://img1.ph.126.net/IQQZXP7SbjqLq7VkkdcvIQ==/2595199285292365183.png">
+<img src="http://img0.ph.126.net/JG65TIaVZwUMT52-fyuaHg==/2183119919468166090.png">
+<img src="http://img2.ph.126.net/aB_uHgLwNrmhG8Yq9aU1LA==/2970405429327732539.png">
+<img src="http://img2.ph.126.net/Y8ceIImgR-I0tyK2UK8CCg==/2606458284360794612.png">
+<img src="http://img0.ph.126.net/A4kVJwJ8tYXXEd5XmRSZpA==/6597886703798107548.png">
+<img src="http://img1.ph.126.net/jOo4JgMB3NpzjGugxZWUyA==/6631675795632839032.png">
+<img src="http://img2.ph.126.net/bno9zO6cWjnnc-dNp-60vg==/6597268778263181645.png">
+<img src="http://img1.ph.126.net/_Tp9NJqz-bwlWaWW1JO9Rw==/6631669198563159349.png">
 
 下一步完善登录，账号，我的音乐，搜索 等功能。
 
