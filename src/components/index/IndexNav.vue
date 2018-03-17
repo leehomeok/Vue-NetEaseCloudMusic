@@ -17,10 +17,10 @@
     data () {
       return {
         tabs: [
-          { name: '个性推荐',  routerName: 'MyList' },
-          { name: '歌单',routerName: 'SongMenu' },
-          {name: '主播电台',routerName: 'MvList' },
-          { name: '排行榜', routerName: 'RankingList' }
+          { name: '发现音乐',  routerName: 'MyList' },
+          //{ name: '歌单',routerName: 'SongMenu' },
+          {name: '主播电台',routerName: 'MvList' }
+          //{ name: '排行榜', routerName: 'RankingList' }
         ],
         tabIndex: 0 //  默认激活tab索引
       }
@@ -50,6 +50,10 @@
     top:50px;
     width: 100%;
     z-index: 1000;
+    padding: 0 15%;
+  }
+  .tabs li:first-child{
+    margin-right: 1rem;
   }
   .tabs .tab-item {
     width: 25%;

@@ -42,48 +42,47 @@
         </li>
       </ul>
     </div>
-    <FootTab></FootTab>
+    <FootBar></FootBar>
   </div>
 </template>
 <script>
   import Cell from '../common/Cell.vue'
   import LinkCell from '../common/linkCell.vue'
   import IconPlaying from '../common/playing.vue'
-  import FootTab from '../common/footTabBar.vue'
+  import FootBar from '../common/footTabBar.vue'
   import API from '../../api';
   const api=new API();
   export  default {
-      data(){
-          return{
-              myListVisible:true,
-              collectVisible:true,
-              myList:[],
-              collectList:[]
-          }
-      },
+    data(){
+      return{
+        myListVisible:true,
+        collectVisible:true,
+        myList:[],
+        collectList:[]
+      }
+    },
     methods:{
        getDataList(){
-           var _this=this;
-           api.get('/user/playlist?uid='+this.$store.state.user.id ,{},function (res) {
-               if(res.code==200){
-                   for(var i=0,len=res.playlist.length;i<len;i++){
-                       if(res.playlist[i].ordered){
-                           _this.collectList.push(res.playlist[i]);
-                       }else{
-                           _this.myList.push(res.playlist[i]);
-                       }
-                   }
-               }
-              //console.log(res);
-           })
+        var _this=this;
+        api.get('/user/playlist?uid='+this.$store.state.user.id ,{},function (res) {
+          if(res.code==200){
+            for(var i=0,len=res.playlist.length;i<len;i++){
+              if(res.playlist[i].ordered){
+                _this.collectList.push(res.playlist[i]);
+              }else{
+                _this.myList.push(res.playlist[i]);
+              }
+            }
+          }
+        })
        }
     },
     mounted(){
-          this.getDataList()
+      this.getDataList()
     },
     components: {
-      FootTab,LinkCell,Cell,IconPlaying
-      }
+      FootBar,LinkCell,Cell,IconPlaying
+    }
   }
 
 </script>

@@ -1,5 +1,17 @@
 <template>
-  <div class="my-list-component">
+  <div class="page page-account">
+    <div class="page-header flex">
+      <div class="flex-item">
+        <IconBack class="back-icon"/>
+      </div>
+      <p class="flex-item">歌单</p>
+      <div class="flex-item flex">
+        <div class="inner-item"></div>
+        <div class="inner-item"></div>
+        <IconPlaying class="inner-item"></IconPlaying>
+      </div>
+    </div>
+
     <div class="top-banner clearfix">
       <div class="top-left">
         <img class="main_img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493827424958&di=259221c1a2ecef7b0a3f5a7a2bb25bea&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fuser%2F435%2F43594%2F13458253735efcf59ddeb7486b.jpg">
@@ -30,24 +42,30 @@
          <p class="song-list-name">{{item.name}}</p>
        </li>
      </ul>
+     <FootBar></FootBar>
   </div>
 </template>
 
 <script>
   import API from '../../api'
+  import FootBar from '../common/footTabBar.vue'
+  import IconBack from '../common/IconBack.vue'
+  import IconPlaying from '../common/playing.vue'
   var api =new API();
   export default{
+    components: {
+      IconPlaying,FootBar,IconBack
+    },
     data () {
       return {
-          songList:[],
-          title:"精品歌单",
-          main_title:"『乐器与电影』一部电影一种乐器",
-          sub_title:"领略光影下的器乐之魂",
-          styleList:[
-              '华语','R&B/Soul','民谣'
-          ],
-          tabIndex: 1
-
+        songList:[],
+        title:"精品歌单",
+        main_title:"『乐器与电影』一部电影一种乐器",
+        sub_title:"领略光影下的器乐之魂",
+        styleList:[
+          '华语','R&B/Soul','民谣'
+        ],
+        tabIndex: 1
       }
     },
     methods: {
@@ -70,8 +88,6 @@
     },
     created () {
         this.getSongList();
-    },
-    components: {
     }
   }
 </script>
@@ -110,7 +126,10 @@
   .title{font-size: .24rem;margin-bottom: .15rem;line-height: 1.6;padding-left: 5px;}
   .icon-king{border:1px solid #f4ea2a;border-radius: 50%;  background: url(../../../static/images/find_music/king.png) 0 0 no-repeat;width: .32rem;height: .32rem;float: left;background-size: contain;}
   .main_img{width: 2rem;height: 2rem;}
-  .top-banner{padding: .4rem .3rem .3rem;color: #fff;
+  .top-banner{
+    margin-top:.7rem;
+    padding: .4rem .3rem .3rem;
+    color: #fff;
     background-image:  -webkit-gradient(linear, 0 0, right 0, from(#95c931), to(#1b402f)) ;
     background: -moz-linear-gradient(left, #95c931, #1b402f);
   }
@@ -127,5 +146,10 @@
     -ms-filter: blur(15px);
     filter: blur(15px);
     z-index: -10;
+  }
+  .back-icon{
+    height: .4rem;
+    margin-top: 8%;
+    color: #333;
   }
 </style>

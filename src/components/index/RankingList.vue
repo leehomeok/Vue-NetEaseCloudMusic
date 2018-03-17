@@ -1,6 +1,19 @@
 <template>
-  <div class="ranking-list-component">
+  <div class="page page-account">
+    <div class="page-header flex">
+      <div class="flex-item">
+        <IconBack class="back-icon"/>
+      </div>
+      <p class="flex-item">排行榜</p>
+      <div class="flex-item flex">
+        <div class="inner-item"></div>
+        <div class="inner-item"></div>
+        <IconPlaying class="inner-item"></IconPlaying>
+      </div>
+    </div>
+
     <CateTitle title="云音乐官方榜"></CateTitle>
+
     <div style="margin-top: 10px" >
       <div  class="flex rk-list" v-for="item in officialList" style="width: 100%" @click="play(item.rankId)">
         <div style="flex:1">
@@ -12,7 +25,6 @@
       </div>
     </div>
 
-
     <CateTitle title="全球榜"></CateTitle>
     <ul class="global clearfix">
       <li v-for="item in globalList" class="item-three" @click="play(item.id)">
@@ -22,7 +34,7 @@
         </div>
       </li>
     </ul>
-
+    <FootBar />
   </div>
 </template>
 <style scoped>
@@ -31,18 +43,31 @@
   .item-three{width: 33%;float: left;margin-right: 1px;margin-bottom: 10px;}
   .top-three{line-height: 24px;margin-bottom: 6px;}
   .rk-list{overflow: hidden;}
+  .back-icon{
+    height: .4rem;
+    margin-top: 8%;
+    color: #333;
+  }
 </style>
 <script>
   import axios from 'axios'
-  //var api =new API();
+  import FootBar from '../common/footTabBar.vue'
+  import IconPlaying from '../common/playing.vue'
+  import IconBack from '../common/IconBack.vue'
   import CateTitle from '../common/CateTitle.vue'
   import {mapState,mapMutations,mapGetters } from 'vuex'
   export default{
-      computed:{
-        ranklist(){
-            return this.$store.getters.getRankList
-        }
-      },
+    components: {
+      CateTitle,FootBar,IconPlaying,IconBack
+    },
+    mounted(){
+      this.getOfficialRank()
+    },
+    computed:{
+      ranklist(){
+          return this.$store.getters.getRankList
+      }
+    },
     data () {
       return {
           loading:true,
@@ -124,14 +149,6 @@
         play(id){
           this.$router.push({path: '/songList/' + id});
       }
-    },
-    created () {
-    },
-    mounted(){
-      this.getOfficialRank()
-    },
-    components: {
-      CateTitle,
     }
   }
 </script>

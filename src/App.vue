@@ -37,13 +37,13 @@
 
     },
     data(){
-        return{
-          isPlaying:false
-        }
+      return{
+        isPlaying:false
+      }
     },
     components: {
-      AudioController,FootBar
-
+      AudioController,
+      FootBar
     }
   }
 </script>

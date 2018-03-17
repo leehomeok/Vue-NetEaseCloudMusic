@@ -89,6 +89,12 @@
   import API from '../api'
   var api =new API();
   export default{
+    created () {
+      this.loadData()
+    },
+    components: {
+      IconBack, FooterPlayer,FootBar
+    },
     data () {
       return {
         songListInfo: {},
@@ -184,12 +190,6 @@
       goPlay(){
         this.$router.push({ name: 'Play'})
       }
-    },
-    created () {
-      this.loadData()
-    },
-    components: {
-      IconBack, FooterPlayer,FootBar
     }
   }
 </script>

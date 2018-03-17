@@ -339,7 +339,10 @@ var storeConfig = {
           },
           getDjList: (state, getters) => {
             return state.DJlist.length;
-          }
+					},
+					selected: (state, getters) => {
+						return state.selected
+					}
 
         }
     }

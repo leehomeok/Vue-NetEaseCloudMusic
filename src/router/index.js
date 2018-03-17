@@ -74,22 +74,22 @@ const router = new Router({
           component: MyList
         },
         {
-          path: 'songMenu',
-          name: 'SongMenu',
-          component: SongMenu
-        },
-        {
           path: 'mvList',
           name: 'MvList',
           component: MvList
-        },
-        {
-          path: 'rankingList',
-          name: 'RankingList',
-          component: RankingList
         }
       ]
     },
+    {
+			path: '/songMenu',
+			name: 'SongMenu',
+			component: SongMenu
+		},
+		{
+			path: '/rankingList',
+			name: 'RankingList',
+			component: RankingList
+		},
     {
       path: '/player',
       name: 'Player',

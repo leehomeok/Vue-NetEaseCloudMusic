@@ -33,15 +33,13 @@
       ></Dynamic>
       <!-- :subTitle="isUndefined(item.rcmdInfo.reason) ? '': item.rcmdInfo.reason" -->
      </div>
-
-
-    <FootTab />
+    <FootBar />
   </div>
 </template>
 <script>
   import Dynamic from '../common/dynamicItem.vue'
   import IconPlaying from '../common/playing.vue'
-  import FootTab from '../common/footTabBar.vue'
+  import FootBar from '../common/footTabBar.vue'
   import axios from 'axios'
   import API from '../../api'
   var api =new API();
@@ -88,7 +86,7 @@
       }
     },
     components: {
-      FootTab,IconPlaying,Dynamic
+      FootBar,IconPlaying,Dynamic
     }
   }
 
