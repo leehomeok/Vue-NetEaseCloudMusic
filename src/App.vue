@@ -138,9 +138,11 @@
   .liked{background-image:url("../static/images/find_music/red_heart.png")!important; }
   .page-account{background: #efefef;}
   .page{padding-bottom: 45px;}
-  .page-header{border-bottom: .02rem solid #e6e6e6;background: #f8f8f8;}
+  .page-header{border-bottom: .02rem solid #e6e6e6;background: #f8f8f8;  position:fixed;width:100%;left: 0;top:0;z-index: 1000;}
+
   .page-header p{line-height:40px;font-size: .32rem;color:#333; text-align: center}
   .page-header .right-item,.inner-item{flex: 1;}
+  .page-body{padding-top: 40px;}
   .flex-item{flex :2;}
   .page-top{padding: .2rem;justify-content:space-between;border-bottom: .005rem solid #e6e6e6;background: #fff;}
   .user-avatar{width: 1rem;height: 1rem;border-radius: 50%;margin-right: 10px;}
@@ -148,8 +150,7 @@
   .uname{margin-bottom: .1rem;font-size: 14px;color:#333;}
   .user-level{border-radius: .3rem;border: 1px solid #cdcdcd;padding: .02rem;text-align: center;}
   .sign{height:.3rem;justify-content: center;margin-top: .25rem;}
-  .sign-in{padding:.1rem .2rem .1rem 0.5rem; border: 1px #d81e06 solid ;border-radius: .3rem;position: relative;
-    height: .2rem;}
+  .sign-in{padding:.1rem .2rem .1rem 0.5rem; border: 1px #d81e06 solid ;border-radius: .3rem;position: relative; height: .2rem;}
   .icon{width: .32rem;height: .32rem;background-repeat: no-repeat;background-size: contain!important;}
   .icon-point{  background-image:url(../static/images/find_music/icon-points.png) ; display: inline-block;
     position: absolute; left: .1rem;top:.05rem; }

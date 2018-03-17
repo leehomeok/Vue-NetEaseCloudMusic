@@ -1,7 +1,8 @@
 <template>
   <div class="index-banner-component">
     <swipe class="my-swipe" :auto="auto">
-      <swipe-item class="slide" v-for="item in bannerList">
+      <swipe-item class="slide" v-for="item in bannerList"
+        :key="item.pic">
         <img class="slide-img" :src="item.pic">
       </swipe-item>
     </swipe>

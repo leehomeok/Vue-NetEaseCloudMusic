@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="head-left">
-         <a class="block" href=""><i class="icon mai"></i></a>
+         <a class="block" href="javascript:void(0)"><i class="icon mai"></i></a>
       </div>
       <div class="head-center">
         <div class="search_wrapper">

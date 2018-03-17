@@ -11,7 +11,10 @@
 
          <div class="dynamic-img clearfix">
             <div v-if="pics.length==1">
-               <img style="width: 60%" v-for="item in pics" v-bind:src="item.originUrl">
+               <img style="width: 60%"
+                v-for="item in pics" 
+                :key="item.originUrl"
+                :src="item.originUrl">
             </div>
 
            <div v-else-if="pics.length==2||pics.length==4">
@@ -50,7 +53,7 @@
          </div>
 
 
-          <p v-if="subTitle" class="reason">{{subTitle}}</p>
+          <p  class="reason">{{subTitle}}</p>
 
          <div class="flex">
             <div class="dynamic-btm">
@@ -137,7 +140,7 @@
      methods:{
        playVideo(){
            var vid=this.videoId.toString();
-          document.getElementById(vid).setAttribute('src',this.videoSrc);
+           document.getElementById(vid).setAttribute('src',this.videoSrc);
        }
      },
      components:{

@@ -67,21 +67,36 @@
   .dj-list {
     width:100%;
   }
-  .dj-list ul{padding-bottom:.2rem}
+  .dj-list ul{
+    padding-bottom:.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .dj-list ul li{
+    float: left;
+    width: calc(100%/3);
+  }
   .dj-detail-brand{color: #fff;position: absolute;bottom: 0;width: 100%;height: 20px;line-height: 20px;}
   .dj-detail-brand span{float: left;}
-  .dj-list ul li{float: left;width: 33%;margin-right: .5% ;}
-  .dj-item{position: relative;}
+  
+  .dj-item{position: relative;text-align: center;}
   .dj-list ul li:nth-child(3n){margin-right:0!important;}
-  .dj-list ul li p{height:.4rem;line-height: .2rem;padding: 0 5px;}
+  .dj-list ul li p{
+    line-height: 1;
+    padding: 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    }
   .song-list-detail {
     position: relative;
     width: 100%;
     height: 100%;
   }
   .dj-list-detail-cover {
-    width: 100%;
-    height: 100%;
+    width: 95%;
   }
    .icon-broad {
     display:block;

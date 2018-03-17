@@ -1,7 +1,7 @@
 <template>
   <div class="mv-list-component ">
     <swipe class="my-swipe" :auto="auto">
-      <swipe-item class="slide" v-for="item in bannerList">
+      <swipe-item class="slide" v-for="item in bannerList" :key="item.pic">
         <img class="slide-img" :src="item.pic">
       </swipe-item>
     </swipe>
@@ -21,7 +21,10 @@
     <section class="clearfix" v-bind:key="DJ.id"  v-for="DJ in HotList">
       <cateTitle class="clearfix" :title="DJ.name"></cateTitle>
       <ul class="dj-type-list clearfix">
-        <li v-if="index<3" v-for="item ,index in DJ.list" v-bind:key="item.id">
+        <li 
+          v-if="index<3" 
+          v-for="item,index in DJ.list" 
+          :key="item.id">
           <img v-bind:src="item.picUrl">
           <p>{{item.name}}</p>
         </li>
@@ -66,8 +69,8 @@
     data () {
       return {
         bannerList:[
-           {pic:"http://img.taihuwang.com/uploads/zixun/20170331/bn53cblizqm.jpg"},
-           {pic:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494047394952&di=52f73bc609ef2d9518cbcb88d8083cbe&imgtype=0&src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fseries%2Ficons%2F1774%2Foriginal%2F%25E6%259A%25B4%25E8%25B5%25B0%25E5%25A4%25A7%25E4%25BA%258B%25E4%25BB%25B63%25E5%25AD%25A3.png"},
+           {pic:"http://p1.music.126.net/ELZkz115IRiQP9XIcdOfvg==/109951163162777119.jpg"},
+           {pic:"http://p1.music.126.net/E-zceX8kBhfWqkCjWfMyHg==/109951163162780642.jpg"},
          ],
         auto:5000,
         HotList:[
