@@ -32,8 +32,12 @@
       <div class="commnt-titile">最新评论({{commentlength}})</div>
       <ul>
         <li v-for="item in commentList" v-bind:key="item.commentId">
-          <CommentItem :avatar="item.user.avatarUrl" :nickname="item.user.nickname"
-                       :zan="item.likedCount" :content="item.content" :time="item.time"></CommentItem>
+          <CommentItem 
+            :avatar="item.user.avatarUrl" 
+            :nickname="item.user.nickname"
+            :zan="item.likedCount" 
+            :content="item.content" 
+            :time="item.time"></CommentItem>
         </li>
       </ul>
     </div>
