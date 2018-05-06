@@ -1,25 +1,21 @@
 <template>
   <div class="song-list-component" >
-    <div class="song-list-detail" @click="goToMusicList(songListInfo.id)" >
-      <img class="song-list-detail-cover" :src="songListInfo.coverImgUrl">
+    <div class="song-list-detail" @click="goToMusicList(item.id)" >
+      <img class="song-list-detail-cover" :src="item.picUrl">
       <div class="flex song-list-detail-listen">
-
         <div class="song-list-detail-listen-count">
         <i class="song-list-detail-listen-icon background"></i>
-        {{ songListInfo.playCount | transformNumberCount }}</div>
+        {{ item.playCount | transformNumberCount }}</div>
       </div>
     </div>
-    <p class="song-list-name">{{ songListInfo.name }}</p>
+    <p class="song-list-name">{{item.name }}</p>
   </div>
 </template>
 
 <script>
   export default{
     props: {
-      id: {
-        type: Number,
-        required: true
-      }
+      item: Object
     },
     data () {
       return {
@@ -34,13 +30,6 @@
       }
     },
     methods: {
-      loadData () {
-        this.$http({url: 'music.php', params: {pIdOld: this.id}}).then(function (res) {
-          if (res.data.code === 200) {
-            this.songListInfo = res.data.result
-          }
-        })
-      },
       goToMusicList (id) {
         this.$router.push({
           name: 'MusicList',
@@ -56,7 +45,6 @@
       this.componentWidth = (this.phoneResolutionWidth - 2 * 2 * dpr) / 3
       //  组件高度和宽度比为1:1
       this.componentHeight = this.componentWidth
-      this.loadData()
     }
   }
 </script>
@@ -64,16 +52,15 @@
 
 <style scoped>
   .song-list-component {
-    height: 2.25rem;
-    width:1rem;
-    margin-right:.05rem;
-    margin-bottom:.5rem;
-    flex:1
+    width: 32.33333%;
+    margin-bottom:.2rem;
+    float: left;
+    padding: 0 .5%;
   }
   .flex .song-list-component:last-child{margin:0!important;}
   .song-list-detail {
     position: relative;
-    width: 100%;
+    float: left;
     height: 100%;
   }
   .song-list-detail-cover {
@@ -81,10 +68,7 @@
     height: 100%;
   }
   .song-list-detail-listen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    
     height:100%;
   }
   .song-list-detail-listen-icon {

@@ -2,7 +2,7 @@
   <div class="flex lyric-component">
     <ul class="lyric">
       <template v-for="(item, index) in lyricArr">
-        <transition name="slide-fade">
+        <transition name="slide-fade" :key="index">
           <li v-show="currentLyricArrIndex === index" class="lyric-container">
             <div v-if="item.lyric" class="lyric-language-other">{{ item.lyric }}</div>
             <div v-if="item.translateLyric" class="lyric-language-chinese">{{ item.translateLyric }}</div>

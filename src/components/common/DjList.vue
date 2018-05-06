@@ -77,7 +77,7 @@
     float: left;
     width: calc(100%/3);
   }
-  .dj-detail-brand{color: #fff;position: absolute;bottom: 0;width: 100%;height: 20px;line-height: 20px;}
+  .dj-detail-brand{color: #fff;position: absolute;bottom: 0;width: 100%;height: 20px;line-height: 20px;overflow: hidden;}
   .dj-detail-brand span{float: left;}
   
   .dj-item{position: relative;text-align: center;}

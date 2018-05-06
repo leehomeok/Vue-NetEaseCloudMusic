@@ -3,27 +3,22 @@
     <index-banner></index-banner>
     <Links></Links>
     <cate-title title="推荐歌单"></cate-title>
-    <div class="flex song-list-container">
-      <song-list :id="447039671"></song-list>
-      <song-list :id="560801222"></song-list>
-      <song-list :id="506954473"></song-list>
+    <div class="song-list-container clearfix">
+      <SongList v-for="item in recommendList" 
+        :key="item.id"
+        :item="item" />
     </div>
-    <div class="flex song-list-container">
-      <song-list :id="506913893"></song-list>
-      <song-list :id="505347469"></song-list>
-      <song-list :id="323396962"></song-list>
-    </div>
+
     <cate-title title="独家放送"></cate-title>
     <SoleBroadcast></SoleBroadcast>
 
     <cate-title title="推荐MV"></cate-title>
-    <div class="flex mv-recommend-container">
-      <mv-recommend :id="372204"></mv-recommend>
-      <mv-recommend :id="320111"></mv-recommend>
-    </div>
-    <div class="flex mv-recommend-container">
-      <mv-recommend :id="306013"></mv-recommend>
-      <mv-recommend :id="5342314"></mv-recommend>
+    <div class="mv-recommend-container clearfix">
+      <mv-recommend class="mv-recommend"
+        v-for="item in MVList"
+        :key="item.id"
+        :mv="item"
+      />
     </div>
 
     <cate-title title="主播电台"></cate-title>
@@ -31,31 +26,72 @@
   </div>
 </template>
 <script>
-  import DjList from '../common/DjList.vue'
-  import IndexBanner from './IndexBanner.vue'
-  import CateTitle from '../common/CateTitle.vue'
-  import SongList from '../common/SongList.vue'
-  import MvRecommend from '../common/MvRecommend.vue'
-  import Links from '../common/links.vue'
-  import SoleBroadcast from '../common/SoleBroadcast.vue'
-  export default{
-    components: {
-      IndexBanner, CateTitle, SongList, MvRecommend,Links,SoleBroadcast,DjList
+import axios from 'axios'
+import DjList from '../common/DjList.vue'
+import IndexBanner from './IndexBanner.vue'
+import CateTitle from '../common/CateTitle.vue'
+import SongList from '../common/SongList.vue'
+import MvRecommend from '../common/MvRecommend.vue'
+import Links from '../common/links.vue'
+import SoleBroadcast from '../common/SoleBroadcast.vue'
+export default{
+  components: {
+    IndexBanner, CateTitle, SongList, MvRecommend,Links,SoleBroadcast,DjList
+  },
+  created () {
+    this.getRecommendList()
+    this.getMVList()
+  },
+  data () {
+    return {
+      recommendList: [],
+      MVList:[]
     }
+  },
+  methods: {
+    getRecommendList () {
+      axios.get(`/nodeApi/personalized`, {}).then(res => {
+        if (res.status == 200) {
+          this.recommendList = res.data.result
+        }
+      })
+    },
+    goToMusicList (id) {
+      this.$router.push({
+        name: 'MusicList',
+        params: {
+          id: id
+        }
+      })
+    },
+    getMVList () {
+      axios.get(`/nodeApi/personalized/mv`, {}).then(res => {
+        if (res.status == 200) {
+          this.MVList = res.data.result
+        }
+      })
+    },
+    
   }
+}
 </script>
 
 <style scoped>
-  .song-list-container,
-  .mv-recommend-container,
   .dj-container
   {
     display:flex;
     justify-content: space-between;
     display:-webkit-box;
   }
-  .mv-recommend-container:last-child {
-    padding-bottom: .25rem;
+  .song-list-container{
+    width: 100%;
+  }
+  .mv-recommend-container .mv-recommend:nth-child(2n){
+    float: right;
+  }
+  .mv-recommend{
+    width: 49.5%;
+    float: left;
   }
 </style>
 

@@ -113,7 +113,7 @@
     },
     methods: {
       loadData () {
-        this.$http({url: 'music.php', params: {pId: this.pId}}).then(function (res) {
+        this.$http({url: `/nodeApi/playlist/detail`, params: {id: this.$route.params.id}}).then(function (res) {
           if (res.data.code === 200) {
             this.songListInfo = res.data.playlist
             this.creator = res.data.playlist.creator
@@ -142,7 +142,6 @@
         //  将该列表推送至正在播放列表,并进行避免重复推送校验
         if (this.playlist.type !== 'list' || (this.playlist.type === 'list' && this.playlist.id !== this.songListInfo.id)) {
           var songList = [] //  优化列表在store中的大小，删除不必要的属性
-
           this.tracks.forEach(function (value) {
             songList.push({
               id: value.id, //  歌曲id

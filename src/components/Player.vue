@@ -13,7 +13,10 @@
       <div class="player-diskette-pole background" :class="{'pausing': !playStatus}"></div>
       <div class="player-diskette-bg">
         <div class="flex player-diskette-rotate background" :class="{'pausing': !playStatus}">
-          <img crossorigin="anonymous" class="player-diskette-album" @load="imgLoaded" @error="imgError" id="album" :src="'http://demo.guojingfeng.com/api/music.php?url=' + songMsg.album.picUrl" />
+          <img crossorigin="anonymous" class="player-diskette-album" id="album" 
+            @load="imgLoaded" 
+            @error="imgError" 
+            :src="songMsg.album.picUrl" />
         </div>
       </div>
     </div>

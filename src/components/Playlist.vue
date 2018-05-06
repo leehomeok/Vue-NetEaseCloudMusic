@@ -20,16 +20,17 @@
           </div>
         </div>
         <ul class="playlist-list">
-          <template v-for="(item, index) in playlist.list">
-            <li class="flex playlist-item">
-              <div v-if="item.id === songMsg.id" class="playing-icon background"></div>
-              <div @click="playThis(item, index)" class="playlist-item-msg text-ellipsis">
-                <span class="playlist-item-msg-name">{{ item.name }}</span>
-                <span class="playlist-item-msg-singers font-size-12"> - {{ item.artists | transformArtistList }}</span>
-              </div>
-              <div @click="removeThis(item, index)" class="playlist-icon-remove background"></div>
-            </li>
-          </template>
+          <li class="flex playlist-item" v-for="(item, index) in playlist.list"
+            :key="index">
+            <template>
+            <div v-if="item.id === songMsg.id" class="playing-icon background"></div>
+            <div @click="playThis(item, index)" class="playlist-item-msg text-ellipsis">
+              <span class="playlist-item-msg-name">{{ item.name }}</span>
+              <span class="playlist-item-msg-singers font-size-12"> - {{ item.artists | transformArtistList }}</span>
+            </div>
+            <div @click="removeThis(item, index)" class="playlist-icon-remove background"></div>
+            </template>
+          </li>
         </ul>
       </div>
     </transition>
@@ -185,9 +186,9 @@
   }
   .playlist-icon-remove {
     flex-shrink: 0;
-    padding: 0  0.05rem;
-    width: 0.32rem;
-    height: .32rem;
+    padding: 0  .05rem;
+    width: .24rem;
+    height: .24rem;
     background-image: url("../../static/images/icon_remove.png");
     background-size: contain;
     background-position: center center;

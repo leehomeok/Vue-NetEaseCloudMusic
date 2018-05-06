@@ -14,7 +14,7 @@
       <div class="player-diskette-bg">
         <div class="flex player-diskette-rotate background" :class="{'pausing': !playStatus}">
           <img crossorigin="anonymous" class="player-diskette-album" @load="imgLoaded" @error="imgError" id="album"
-               :src="'http://demo.guojingfeng.com/api/music.php?url=' + songMsg.album.picUrl" />
+               :src="songMsg.album.picUrl" />
         </div>
       </div>
     </div>
@@ -98,14 +98,13 @@
         StackBlur.image(this.albumDomElement, this.canvasDomElement, 180)
       },
       imgError () {
-//        var albumUrl = '../static/images/player/album.png'
-//        this.albumDomElement.src = process.env.NODE_ENV !== 'production' ? '../' + albumUrl : albumUrl
         this.albumDomElement.src = albumUrl
       }
     },
     mounted () {
       this.canvasDomElement = document.getElementById('blurBackground')
       this.albumDomElement = document.getElementById('album')
+      window.leeho = this
     },
     components: {
       IconBack, Slider, Lyric, Playlist,Comment

@@ -15,19 +15,28 @@
     <CateTitle title="云音乐官方榜"></CateTitle>
 
     <div style="margin-top: 10px" >
-      <div  class="flex rk-list" v-for="item in officialList" style="width: 100%" @click="play(item.rankId)">
+      <div  class="flex rk-list" 
+        v-for="item in officialList" :key="item.rankId"
+        style="width: 100%" @click="play(item.rankId)">
         <div style="flex:1">
           <img :src="item.picUrl" style="width: 120px;">
         </div >
         <div style="flex:2; padding-left: 15px;padding-top: 10px;">
-          <p class="top-three" v-for="(item,index) in item.tracks" v-if="index<3">{{index+1}}.{{item.name}}-{{item.artists[0].name}}</p>
+          <p class="top-three" 
+            v-for="(item,index) in item.tracks"
+            :key="index"
+            v-if="index<3">
+            {{index+1}}.{{item.name}}-{{item.artists[0].name}}
+          </p>
         </div>
       </div>
     </div>
 
     <CateTitle title="全球榜"></CateTitle>
     <ul class="global clearfix">
-      <li v-for="item in globalList" class="item-three" @click="play(item.id)">
+      <li v-for="item in globalList"
+        :key="item.id" 
+        class="item-three" @click="play(item.id)">
         <div style="display: inline-block;width: 100%">
           <img :src="item.picUrl" width="100%" style="border:1px solid #eeeeee">
           <p style="padding:0 3px ">{{item.name}}</p>
