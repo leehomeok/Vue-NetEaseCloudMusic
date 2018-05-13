@@ -28,13 +28,6 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
-        target: 'http://demo.guojingfeng.com/api',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      },
       '/nodeApi': {
         target: 'http://localhost:3000/',
         changeOrigin: true,
