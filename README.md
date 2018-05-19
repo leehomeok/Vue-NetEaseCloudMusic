@@ -6,7 +6,6 @@
 技术栈  vue,vuex,vue-router ,axios,es6<br>
 完成功能个性推荐，歌单，主播电台列表，排行榜，<br>
 听歌，上一首，下一首。
-
 推荐将使用chrome浏览器 调成手机模式观看
 <img src="http://chuantu.biz/t6/315/1526738401x-1404793417.png" />
 <img src="http://img0.ph.126.net/TdcbcE4OuZUYWoAz3zRHRA==/6631487779144620060.png">
