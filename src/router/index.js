@@ -51,13 +51,13 @@ const MyMusic = resolve => {
   })
 }
 const Friend = resolve => {
-  require.ensure(['@/components/page/Friend.vue'], () => {
-    resolve(require('@/components/page/Friend.vue'))
+  require.ensure(['@/components/page/friend.vue'], () => {
+    resolve(require('@/components/page/friend.vue'))
   })
 }
 const Account = resolve => {
-  require.ensure(['@/components/page/Account.vue'], () => {
-    resolve(require('@/components/page/Account.vue'))
+  require.ensure(['@/components/page/account.vue'], () => {
+    resolve(require('@/components/page/account.vue'))
   })
 }
 

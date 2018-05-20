@@ -18,6 +18,7 @@
         v-for="item in MVList"
         :key="item.id"
         :mv="item"
+        @click.native="goToMvPlayer(item.id)"
       />
     </div>
 
@@ -71,7 +72,14 @@ export default{
         }
       })
     },
-    
+    goToMvPlayer (id) { //  跳转到MV播放界面
+      this.$router.push({
+        name: 'mvPlayer',
+        params: {
+          mvid: id
+        }
+      })
+    }
   }
 }
 </script>

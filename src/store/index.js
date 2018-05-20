@@ -279,12 +279,12 @@ var store = {
             var length = state.lyricArr.length
             for (var i = 0; i < length; i++) {
                 if (i !== (length - 1)) { //  不为最后一句歌词时
-									if (time > state.lyricArr[i].time && time < state.lyricArr[i + 1].time) { //  当大于当前歌词时间戳并且小于下一帧歌词时间戳
-										state.currentLyricArrIndex = i
-									}
+                    if (time > state.lyricArr[i].time && time < state.lyricArr[i + 1].time) { //  当大于当前歌词时间戳并且小于下一帧歌词时间戳
+                        state.currentLyricArrIndex = i
+                    }
                 } else {
-									//  最后一句歌词暂时不做处理
-									// state.currentLyricArrIndex = i
+                    //  最后一句歌词暂时不做处理
+                    // state.currentLyricArrIndex = i
                 }
             }
         },

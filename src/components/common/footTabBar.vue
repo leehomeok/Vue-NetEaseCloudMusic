@@ -62,14 +62,14 @@ export default {
   },
   computed:{
     selected: {
-    get () {
-      return this.$store.getters.selected
-    },
-    set (val) {
-      this.$store.dispatch('SET_TABBAR',{
-        selected:val
-      })
-    }
+      get () {
+        return this.$store.getters.selected
+      },
+      set (val) {
+        this.$store.dispatch('SET_TABBAR',{
+          selected:val
+        })
+      }
     }
   }
 }

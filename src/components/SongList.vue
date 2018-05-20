@@ -125,16 +125,15 @@
             return Math.abs(r);
         },
       loadData () {
-          var _this=this;
-        api.get('/top/list?idx='+this.pId,{
-        },function (res) {
-            if(res.code == 200){
-                var rdata=res.result;
-              _this.songListInfo = rdata;
-              _this.creator = rdata.creator;
-              _this.tracks = rdata.tracks;
-              _this.songlength=rdata.tracks.length;
-            }
+        var _this=this;
+        api.get('/top/list?idx='+this.pId,{},function (res) {
+          if(res.code == 200){
+              var rdata=res.result;
+            _this.songListInfo = rdata;
+            _this.creator = rdata.creator;
+            _this.tracks = rdata.tracks;
+            _this.songlength=rdata.tracks.length;
+          }
         })
       },
       playThis (songMsg, index) {
@@ -159,7 +158,6 @@
         //  将该列表推送至正在播放列表,并进行避免重复推送校验
         if (_this.playlist.type !== 'list' || (_this.playlist.type === 'list' && _this.playlist.id !== _this.songListInfo.id)) {
           var songList = []; //  优化列表在store中的大小，删除不必要的属性
-
           _this.tracks.forEach(function (value) {
             songList.push({
               id: value.id, //  歌曲id

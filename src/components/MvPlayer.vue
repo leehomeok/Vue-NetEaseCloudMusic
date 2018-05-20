@@ -34,6 +34,7 @@
 <script>
   import IconBack from './common/IconBack.vue'
   import Toast from './common/Toast.vue'
+  import axios from 'axios'
   export default{
     name: 'MvPlayer',
     data () {
@@ -49,7 +50,7 @@
     },
     computed: {
       mvId () {
-        return this.$route.params.id
+        return this.$route.params.mvid
       }
     },
     watch: {
@@ -62,12 +63,15 @@
     },
     methods: {
       loadData () {
-        this.$http({url: 'music.php', params: {mvId: this.mvId}}).then(function (res) {
-          this.mvInfo = res.data.data
-          for (var key in this.mvInfo.brs) {
-            this.brsType[key] = true
+        axios.get(`/nodeApi/mv?mvid=${this.mvId}`).then(res => {
+          console.log(res)
+          if(res.status == 200) {
+            this.mvInfo = res.data.data
+            for (var key in this.mvInfo.brs) {
+              this.brsType[key] = true
+            }
+            this.getUrl()
           }
-          this.getUrl()
         })
       },
       changeBrs (type) { //  更换视频源

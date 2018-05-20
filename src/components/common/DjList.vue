@@ -74,9 +74,11 @@
     justify-content: space-around;
   }
   .dj-list ul li{
-    float: left;
-    width: calc(100%/3);
+    display: inline-block;
+    width: 33%;
+    margin-right:.5%;
   }
+  
   .dj-detail-brand{color: #fff;position: absolute;bottom: 0;width: 100%;height: 20px;line-height: 20px;overflow: hidden;}
   .dj-detail-brand span{float: left;}
   
@@ -96,7 +98,7 @@
     height: 100%;
   }
   .dj-list-detail-cover {
-    width: 95%;
+    width: 100%;
   }
    .icon-broad {
     display:block;

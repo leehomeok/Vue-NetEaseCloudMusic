@@ -1,6 +1,6 @@
 <template>
   <div class="mv-recommend-component" >
-    <div @click="goToMvPlayer" class="mv-recommend-detail" >
+    <div  class="mv-recommend-detail" >
       <img class="mv-recommend-detail-cover" :src="mv.picUrl">
       <div class="mv-listen-count font-size-10">
       <i class="mv-recommend-detail-listen-icon background"></i>{{ mv.playCount | transformNumberCount }}</div>

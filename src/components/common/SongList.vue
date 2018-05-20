@@ -52,15 +52,14 @@
 
 <style scoped>
   .song-list-component {
-    width: 32.33333%;
-    margin-bottom:.2rem;
-    float: left;
-    padding: 0 .5%;
+    width: 33%;
+    display: inline-block;
+    margin-right: .5%;
+    overflow: hidden;
   }
-  .flex .song-list-component:last-child{margin:0!important;}
+  .song-list-container .song-list-component:nth-child(3n){margin-right:0!important;}
   .song-list-detail {
     position: relative;
-    float: left;
     height: 100%;
   }
   .song-list-detail-cover {
@@ -68,7 +67,6 @@
     height: 100%;
   }
   .song-list-detail-listen {
-    
     height:100%;
   }
   .song-list-detail-listen-icon {
@@ -82,11 +80,13 @@
     position:absolute;
     right:0.05rem;
     top:0.05rem;
-
     color: #fff;
   }
   .song-list-name {
-    margin:.05rem 0 .15rem ;text-align:center;
+    margin:.05rem 0 .15rem;
+    line-height:12px;
+    height:24px;
+    text-align:center;
   }
 </style>
 
