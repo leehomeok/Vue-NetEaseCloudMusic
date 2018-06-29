@@ -23,9 +23,14 @@
 
       <div class="commnt-titile">精彩评论</div>
       <ul>
-        <li v-for="item in hotCommentList" v-bind:key="item.commentId">
-          <CommentItem :avatar="item.user.avatarUrl" :nickname="item.user.nickname"
-           :zan="item.likedCount" :content="item.content" :time="item.time"></CommentItem>
+        <li v-for="item in hotList" v-bind:key="item.commentId">
+          <CommentItem 
+            :avatar="item.user.avatarUrl" 
+            :nickname="item.user.nickname"
+            :zan="item.likedCount" 
+            :content="item.content" 
+            :time="item.time">
+          </CommentItem>
       </li>
       </ul>
 
@@ -37,7 +42,8 @@
             :nickname="item.user.nickname"
             :zan="item.likedCount" 
             :content="item.content" 
-            :time="item.time"></CommentItem>
+            :time="item.time">
+          </CommentItem>
         </li>
       </ul>
     </div>
@@ -45,47 +51,65 @@
   </div>
 </template>
 <script>
+  import debounce from 'lodash.debounce'
   import API from '../api'
-  var api =new API();
+  import {getDocumentTop, getWindowHeight, getScrollHeight} from 'utils'
   import {mapState, mapGetters }from 'vuex'
   import { InfiniteScroll } from 'mint-ui';
   import IconPlaying from './common/playing.vue'
   import CommentItem from './common/commentItem.vue'
-
+  var api =new API();
   export default{
-      data(){
-          return{
-              commentlength:0,
-              hotCommentList:[],
-              commentList:[]
-          }
-      },
+    components:{
+      InfiniteScroll , IconPlaying , CommentItem
+    },
+    data(){
+      return{
+        commentlength:0,
+        hotList:[],
+        commentList:[],
+        pageSize: 20,
+        more: true,
+        curruntPage: 1,
+        offset: 0
+      }
+    },
     created(){
-     this.hotCommentList=[]
+      this.hotList=[]
       this.commentList=[]
     },
     mounted(){
-
-      this.getCommentList();
+      var w = window
+      window.onscroll = ()=> {
+        if (this.$route.name == 'comment') {
+          if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
+            console.log(this.more ? '加载中': '没有了')
+            if (this.more) {
+              this.curruntPage++
+              this.getData()
+            }
+          }
+        }
+      }
+      this.getData();
     },
     computed:{
       ...mapState[('comment','songMsg')],
-        songMsg(){
-            return this.$store.state.songMsg
-        },
-        artists(){
-            var arts=this.$store.state.songMsg.artists;
-        },
+      songMsg(){
+        return this.$store.state.songMsg
+      },
+      artists(){
+        var arts=this.$store.state.songMsg.artists;
+      },
       songId(){
         return this.$store.state.songMsg.id
       }
-
     },
     watch: {
       songId (newValue) {
-        if (newValue)
-          this.commentList=[];//清空上一首歌的评论
-          this.getCommentList()
+        if (newValue) {
+          this.reset()
+        }
       }
     },
     methods:{
@@ -95,18 +119,30 @@
       goBack () {
         this.$router.go(-1)
       },
-      getCommentList(){
-          api.get('/comment/music?id='+ this.songMsg.id + '&limit=20',{}, (res)=> {
-             if(res.code==200){
-                  this.commentlength=res.total;
-                  this.hotCommentList=res.hotComments;
-                  this.commentList =this.commentList.concat(res.comments) ;
-             }
-          })
+      getData(){
+        api.get(`/comment/music?id=${this.songMsg.id}&limit=${this.pageSize}&offset=${(this.curruntPage-1) * this.pageSize}`,{}, (res)=> {
+          if(res.code==200){
+            let {total, more, hotComments, comments} = res
+            if (this.curruntPage == 1) {
+              this.commentlength=total;
+              this.hotList= hotComments;
+            }
+            this.more = more;
+            this.commentList =this.commentList.concat(comments) ;
+          }
+        })
+      },
+      reset () {
+        this.commentList=[];//清空上一首歌的评论
+        this.hotList = []
+        this.curruntPage = 1;
+        this.more = true
+        window.scrollTo({
+          top: 0, 
+          behavior: "smooth"}
+        )
+        this.getData()
       }
-    },
-    components:{
-      InfiniteScroll , IconPlaying , CommentItem
     }
   }
 

@@ -62,7 +62,7 @@
             <div v-if="songMsg.id !== item.id" class="music-list-item-index" style="height: .5rem">
               <p class="rank" style="margin:.02rem 0 .05rem">{{ index + 1 }}</p>
               <p class="rank" style="color:red" v-if="index<item.lastRank">↑{{ (index - item.lastRank )|abs  }}</p>
-              <p class="rank" v-else="">↓{{ (index - item.lastRank )|abs }}</p>
+              <p class="rank" v-else>↓{{ (index - item.lastRank )|abs }}</p>
             </div>
             <div v-else class="music-list-item-playing background"></div>
             <div class="flex music-item-container">
@@ -71,7 +71,7 @@
                   <p class="music-name text-ellipsis">{{ item.name }}</p>
                   <div v-if="item.mvid !== 0" @click.stop="goToMvPlayer(item.mvid)" class="icon-mv background"></div>
                 </div>
-                <div class="music-singer text-ellipsis">{{item.artists[0].name  }}  - {{  item.album.name }}</div>
+                <div class="music-singer text-ellipsis">{{item.artists[0].name}}  - {{item.album.name}}</div>
               </div>
               <div class="icon-ellipsis background"></div>
             </div>
@@ -137,7 +137,7 @@
         })
       },
       playThis (songMsg, index) {
-            var _this=this;
+        var _this=this;
         //  如果正在播放当前音乐，那么点击变为跳转到播放界面
         if (_this.songMsg.id === songMsg.id) {
           _this.$router.push({

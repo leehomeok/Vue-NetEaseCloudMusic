@@ -11,7 +11,9 @@
             <p class="time">{{time |time }}</p>
          </div>
          <div class="zan " @click="like()" v-bind:class="{like :liked==true}">
-           <span v-show="zan>0" class="like_count">{{zan| wan}}</span><span class="icon icon-zan"></span>
+            
+            <span v-show="zan>0" class="like_count">{{zan| wan}}</span>
+            <span class="icon icon-zan"></span>
          </div>
          </div>
        <div>
@@ -52,12 +54,12 @@
     },
     methods:{
       like(){
-          this.liked=!this.liked;
-          if(this.liked==true){
-              this.zan++
-          }else{
-              this.zan--
-          }
+        this.liked=!this.liked;
+        if(this.liked==true){
+            this.zan++
+        }else{
+            this.zan--
+        }
       }
     }
   }

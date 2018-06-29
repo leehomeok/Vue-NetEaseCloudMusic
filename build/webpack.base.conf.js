@@ -23,7 +23,8 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
             'muse-components': 'muse-ui/src',
-            'static': resolve('static')
+            'static': resolve('static'),
+            'utils': resolve('src/utils')
         }
     },
     module: {
