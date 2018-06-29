@@ -19,9 +19,9 @@
       <div class="flex mv-player-buttons">
         <div class="definition-tip">当前视频清晰度：</div>
         <div class="flex mv-player-buttons-group">
-          <button v-if="brsType[240]" @click="changeBrs('SD')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'SD'}">标清</button>
-          <button v-if="brsType[480]" @click="changeBrs('HD')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'HD'}">高清</button>
-          <button v-if="brsType[720]" @click="changeBrs('HC')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'HC'}">超清</button>
+          <button v-if="brsType[240]"  @click="changeBrs('SD')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'SD'}">标清</button>
+          <button v-if="brsType[480]"  @click="changeBrs('HD')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'HD'}">高清</button>
+          <button v-if="brsType[720]"  @click="changeBrs('HC')" class="btn-definition" :class="{'btn-definition-active': videoBrs === 'HC'}">超清</button>
           <button v-if="brsType[1080]" @click="changeBrs('1080P')" class="btn-definition" :class="{'btn-definition-active': videoBrs === '1080P'}">1080P</button>
         </div>
       </div>
@@ -64,13 +64,13 @@
     methods: {
       loadData () {
         axios.get(`/nodeApi/mv?mvid=${this.mvId}`).then(res => {
-          console.log(res)
           if(res.status == 200) {
             this.mvInfo = res.data.data
             for (var key in this.mvInfo.brs) {
               this.brsType[key] = true
             }
-            this.getUrl()
+            this.videoUrl = `//localhost:3000/mv/url?url=${this.mvInfo.brs[240]}`
+            // this.getUrl()
           }
         })
       },
@@ -99,13 +99,7 @@
         } else {
           url = this.mvInfo.brs[1080]
         }
-        this.$http({url: 'music.php', params: {video: url, filename: this.videoBrs + '-' + this.mvInfo.id}}).then(function (res) {
-          this.videoUrl = res.data
-        }).catch(function () {
-          this.toastShow = true
-          this.ToastText = '服务器出错了o(╯□╰)o'
-          this.closeToast(3000)
-        })
+        this.videoUrl = `//localhost:3000/mv/url?url=${url}`
       },
       getVideoDomElement () {
         this.videoDomElement = document.getElementById('mvPlayer')
@@ -252,5 +246,8 @@
   }
   .btn-definition-active {
     color: #507daf;
+  }
+  .mv-player-buttons-group .btn-definition{
+    outline: none;
   }
 </style>

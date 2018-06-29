@@ -6,7 +6,13 @@
     <title>wangyiyun_music</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <script>
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+        function resiz () {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+        }
+        resiz();
+        window.addEventListener('resize', function() {
+            resiz();
+        })
     </script>
 </head>
 
