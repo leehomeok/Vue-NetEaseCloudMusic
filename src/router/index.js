@@ -60,6 +60,11 @@ const Account = resolve => {
     resolve(require('@/components/page/account.vue'))
   })
 }
+const SingerType = resolve => {
+  require.ensure(['@/components/singerType.vue'], () => {
+    resolve(require('@/components/singerType.vue'))
+  })
+}
 
 const router = new Router({
   routes: [
@@ -139,6 +144,10 @@ const router = new Router({
       path: '/account',
       name: 'account',
       component: Account
+    },
+    {
+      path: '/singer-type',
+      component: SingerType
     },
   ]
 })

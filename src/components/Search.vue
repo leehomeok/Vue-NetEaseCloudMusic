@@ -4,7 +4,11 @@
       <div class="head-center">
         <div class="search_wrapper flex">
           <i class="icon icon-sm icon-search "></i>
-          <input  v-on:keyup.13="search()" v-model="keyword" type="search" class="search-input" placeholder="搜索音乐、歌词、电台"/>
+          <input  type="search"
+            v-on:keyup.13="search()" 
+            v-model="keyword"  
+            class="search-input" 
+            placeholder="搜索音乐、歌词、电台"/>
         </div>
       </div>
       <div class="head-right">
@@ -15,7 +19,7 @@
     <div class="search-suggestion">
       <div class="flex artists-classification">
         <div class="icon-artist background"></div>
-        <div class="artists-classification-name font-size-14">歌手分类</div>
+        <div class="artists-classification-name font-size-14" @click="goSinger()">歌手分类</div>
         <div class="icon-arrow background"></div>
       </div>
       <div class="keywords-hot">
@@ -61,28 +65,29 @@
       }
     },
     methods: {
-        removeHistory(item){
-          var _this = this;
-          var  index=_this.searchList.indexOf(item);
-               _this.searchList.splice(index, 1);
-        },
+      removeHistory(item){
+        var _this = this;
+        var  index=_this.searchList.indexOf(item);
+              _this.searchList.splice(index, 1);
+      },
       search(){
-          var _this=this;
-          var isExist=false;
+        var _this=this;
+        var isExist=false;
         _this.searchList.forEach(function (item) {
              if(item.name==_this.keyword){
                  isExist=true;
              }
         })
-        if(isExist){
-
-        }else{
+        if(!isExist){
           _this.searchList.push({id:_this.searchList.length+1, name:_this.keyword })
         }
       },
       goBack () {
-          this.$router.push({name:"Index"})
+        this.$router.push({name:"Index"})
         //this.$router.go(-1)
+      },
+      goSinger () {
+        this.$router.push({path:"singer-type"})
       }
     },
     computed:{

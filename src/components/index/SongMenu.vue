@@ -28,7 +28,11 @@
         全部歌单<i class="icon icon-arrow-right-sm"></i>
       </div>
        <ul class="styles" style="float: right;">
-         <li class="song-style" v-for="item in styleList">{{item}}</li>
+         <li class="song-style" 
+          v-for="(item,index) in styleList"
+          :key="index">
+          {{item}}
+        </li>
        </ul>
     </div>
 

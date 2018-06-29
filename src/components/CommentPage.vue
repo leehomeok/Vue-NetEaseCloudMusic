@@ -53,15 +53,14 @@
 <script>
   import debounce from 'lodash.debounce'
   import API from '../api'
-  import {getDocumentTop, getWindowHeight, getScrollHeight} from 'utils'
+  import {getDocumentTop, getWindowHeight, getScrollHeight, throttle} from 'utils'
   import {mapState, mapGetters }from 'vuex'
-  import { InfiniteScroll } from 'mint-ui';
   import IconPlaying from './common/playing.vue'
   import CommentItem from './common/commentItem.vue'
   var api =new API();
   export default{
     components:{
-      InfiniteScroll , IconPlaying , CommentItem
+       IconPlaying , CommentItem
     },
     data(){
       return{
@@ -81,15 +80,18 @@
     mounted(){
       var w = window
       window.onscroll = ()=> {
-        if (this.$route.name == 'comment') {
-          if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
-            console.log(this.more ? '加载中': '没有了')
-            if (this.more) {
-              this.curruntPage++
-              this.getData()
+        throttle(() => {
+          console.log('scroll')
+          if (this.$route.name == 'comment') {
+            if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
+              console.log(this.more ? '加载中': '没有了')
+              if (this.more) {
+                this.curruntPage++
+                this.getData()
+              }
             }
           }
-        }
+        }, 200)
       }
       this.getData();
     },

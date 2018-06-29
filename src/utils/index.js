@@ -33,3 +33,13 @@ export function getScrollHeight() {
   }
   scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;    return scrollHeight;
 }
+
+export function throttle (fn, delay) {
+  var timer = null;
+  return function () {
+      clearTimeout(timer);
+      timer = setTimeout(function() {
+          fn();
+      }, delay);
+  }
+};

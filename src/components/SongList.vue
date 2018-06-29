@@ -12,7 +12,7 @@
     </div>
     <div class="flex music-list-message">
       <div class="music-list-message-cover-container">
-        <img v-bind:src="songListInfo.coverImgUrl" class="music-list-cover">
+        <img :src="songListInfo.coverImgUrl" class="music-list-cover">
         <div class="music-list-message-listen-count ">
         </div>
 
@@ -57,25 +57,29 @@
         <div class="music-list-playlist-icon-setting background"></div>
       </div>
       <ul class="music-list">
-
-          <li v-for="(item, index) in tracks" class="flex music-list-item" @click="playThis(item, index)" :key=item.id>
-            <div v-if="songMsg.id !== item.id" class="music-list-item-index" style="height: .5rem">
-              <p class="rank" style="margin:.02rem 0 .05rem">{{ index + 1 }}</p>
-              <p class="rank" style="color:red" v-if="index<item.lastRank">↑{{ (index - item.lastRank )|abs  }}</p>
-              <p class="rank" v-else>↓{{ (index - item.lastRank )|abs }}</p>
-            </div>
-            <div v-else class="music-list-item-playing background"></div>
-            <div class="flex music-item-container">
-              <div class="music-item text-ellipsis">
-                <div class="flex music-detail">
-                  <p class="music-name text-ellipsis">{{ item.name }}</p>
-                  <div v-if="item.mvid !== 0" @click.stop="goToMvPlayer(item.mvid)" class="icon-mv background"></div>
+        <li v-for="(item, index) in tracks" class="flex music-list-item" 
+          @click="playThis(item, index)" 
+          :key=item.id>
+          <div v-if="songMsg.id !== item.id" class="music-list-item-index" style="height: .5rem">
+            <p class="rank" style="margin:.02rem 0 .05rem">{{ index + 1 }}</p>
+            <p class="rank" style="color:red" v-if="index<item.lastRank">↑{{ (index - item.lastRank )|abs  }}</p>
+            <p class="rank" v-else>↓{{ (index - item.lastRank )|abs }}</p>
+          </div>
+          <div v-else class="music-list-item-playing background"></div>
+          <div class="flex music-item-container">
+            <div class="music-item text-ellipsis">
+              <div class="flex music-detail">
+                <p class="music-name text-ellipsis">{{ item.name }}</p>
+                <div v-if="item.mvid !== 0" 
+                  @click.stop="goToMvPlayer(item.mvid)" 
+                  class="icon-mv background">
                 </div>
-                <div class="music-singer text-ellipsis">{{item.artists[0].name}}  - {{item.album.name}}</div>
               </div>
-              <div class="icon-ellipsis background"></div>
+              <div class="music-singer text-ellipsis">{{item.ar[0].name}}  - {{item.al.name}}</div>
             </div>
-          </li>
+            <div class="icon-ellipsis background"></div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -125,14 +129,14 @@
             return Math.abs(r);
         },
       loadData () {
-        var _this=this;
-        api.get('/top/list?idx='+this.pId,{},function (res) {
+        api.get(`/top/list?idx=${this.pId}`,{},(res)=> {
           if(res.code == 200){
-              var rdata=res.result;
-            _this.songListInfo = rdata;
-            _this.creator = rdata.creator;
-            _this.tracks = rdata.tracks;
-            _this.songlength=rdata.tracks.length;
+            // console.log(res)
+            let rdata=res.playlist;
+            this.songListInfo = rdata;
+            this.creator = rdata.creator;
+            this.tracks = rdata.tracks;
+            this.songlength=rdata.tracks.length;
           }
         })
       },
@@ -145,12 +149,13 @@
           })
           return
         }
+        // debugger
         //  设置播放的音频信息
         _this.$store.dispatch('setSongMsg', {
           id: songMsg.id, //  歌曲id
           name: songMsg.name, // 歌曲名称
-          artists: songMsg.artists, //  演唱歌手
-          album: songMsg.album, //  专辑信息
+          artists: songMsg.artists || songMsg.ar, //  演唱歌手
+          album: songMsg.album || songMsg.al, //  专辑信息
           mvid: songMsg.mvid //  mv链接ID，0为没有id
         })
         //  设置当前播放音频在列表中的索引

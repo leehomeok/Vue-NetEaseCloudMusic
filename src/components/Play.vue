@@ -13,8 +13,11 @@
       <div class="player-diskette-pole background" :class="{'pausing': !playStatus}"></div>
       <div class="player-diskette-bg">
         <div class="flex player-diskette-rotate background" :class="{'pausing': !playStatus}">
-          <img crossorigin="anonymous" class="player-diskette-album" @load="imgLoaded" @error="imgError" id="album"
-               :src="songMsg.album.picUrl" />
+          <img crossorigin="anonymous" 
+            class="player-diskette-album"
+            @load="imgLoaded" 
+            @error="imgError" id="album"
+            :src="songMsg.album.picUrl" />
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
       </div>
       <div class="cell-bd">
         <p style="margin-bottom: 5px;font-size: .24rem;color:#333;">{{title}}</p>
-        <p style="font-size: .18rem;color:#666">{{subTitle}}</p>
+        <p v-if="subTitle" style="font-size: .18rem;color:#666">{{subTitle}}</p>
       </div>
     </a>
   </div>
@@ -27,7 +27,6 @@
     },
     data(){
       return{
-
       }
     }
   }

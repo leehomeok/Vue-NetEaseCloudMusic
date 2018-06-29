@@ -2,8 +2,12 @@
   <div class="index-nav-component">
     <ul class="tabs flex">
       <template v-for="(item, index) in tabs">
-        <li @click="goToRouter(item.routerName, index)" class="tab-item font-size-14 align-center"
-            :class="{'tab-item-active':index === tabIndex}">{{ item.name }}</li>
+        <li @click="goToRouter(item.routerName, index)" 
+            :key="index"
+            class="tab-item font-size-14 align-center"
+            :class="{'tab-item-active':index === tabIndex}">
+            {{ item.name }}
+        </li>
       </template>
     </ul>
     <keep-alive>

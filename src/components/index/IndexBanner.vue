@@ -2,8 +2,8 @@
   <div class="index-banner-component">
     <swipe class="my-swipe" :auto="auto">
       <swipe-item class="slide" v-for="item in bannerList"
-        :key="item.pic">
-        <img class="slide-img" :src="item.pic">
+        :key="item.picUrl">
+        <img class="slide-img" :src="item.picUrl">
       </swipe-item>
     </swipe>
   </div>
@@ -25,7 +25,7 @@
            var _this=this;
            api.get('/banner',{},function (res) {
                if(res.code==200){
-                    _this.bannerList=res.banners;
+                  _this.bannerList=res.banners;
                }
            })
        }

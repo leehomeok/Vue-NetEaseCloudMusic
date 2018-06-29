@@ -10,19 +10,17 @@
 <script>
   import {mapState  }from 'vuex'
   export default{
-      data(){
-          return{
-          }
+    data(){
+      return{
+      }
     },
     methods:{
-
-        goPlay(){
-          this.$router.push({ name: 'Play'})
-
-        }
+      goPlay(){
+        this.$router.push({ name: 'Play'})
+      }
     },
     computed:{
-          ...mapState (['playStatus'])
+      ...mapState (['playStatus'])
     }
   }
 </script>

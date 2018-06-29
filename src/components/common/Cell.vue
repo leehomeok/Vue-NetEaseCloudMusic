@@ -1,7 +1,7 @@
 <template>
   <div>
   <a class="weui-cell weui-cell_access" href="javascript:;">
-    <div class="weui-cell__hd">
+    <div class="weui-cell__hd" v-if="imgsrc">
       <img v-bind:src="imgsrc" class="icon-img">
     </div>
     <div class="weui-cell__bd">

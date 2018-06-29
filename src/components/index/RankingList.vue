@@ -26,7 +26,7 @@
             v-for="(item,index) in item.tracks"
             :key="index"
             v-if="index<3">
-            {{index+1}}.{{item.name}}-{{item.artists[0].name}}
+            {{index+1}}.{{item.name}}-{{item.ar[0].name}}
           </p>
         </div>
       </div>
@@ -113,7 +113,7 @@
     methods: {
         getOfficialRank(){
           if (this.ranklist > 0) {
-              console.log(this.ranklist)
+            console.log(this.ranklist)
             this.Loading = false;
             return;
           }
@@ -130,23 +130,23 @@
             Promise.all(L.map(item => {
               P(item).then(res => {
                 if (item == 0) {
-                  res.data.result.picUrl = 'http://p4.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg?param=150y150';
-                  res.data.result.rankId = 0;
+                  res.data.playlist.picUrl = 'http://p4.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg?param=150y150';
+                  res.data.playlist.rankId = 0;
                 }
                 if (item == 1) {
-                  res.data.result.picUrl = 'http://p3.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg?param=150y150'
-                  res.data.result.rankId = 1;
+                  res.data.playlist.picUrl = 'http://p3.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg?param=150y150'
+                  res.data.playlist.rankId = 1;
                 }
                 if (item == 2) {
-                  res.data.result.picUrl = 'http://p3.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=150y150'
-                  res.data.result.rankId = 2;
+                  res.data.playlist.picUrl = 'http://p3.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=150y150'
+                  res.data.playlist.rankId = 2;
                 }
                 if (item == 3) {
-                  res.data.result.picUrl = 'http://p3.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=150y150'
-                  res.data.result.rankId = 3;
+                  res.data.playlist.picUrl = 'http://p3.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=150y150'
+                  res.data.playlist.rankId = 3;
                 }
-                list.push(res.data.result);
-                resolve(res.data.result)
+                list.push(res.data.playlist);
+                resolve(res.data.playlist)
               });
             }));
           }).then(result => {
