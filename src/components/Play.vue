@@ -31,7 +31,11 @@
       </div>
       <div class="flex player-controllers">
         <div @click="changePlayMode" class="player-mode background"
-             :class="{'player-mode-listRandom': playMode === 'listRandom', 'player-mode-singleCycle': playMode === 'singleCycle'}"></div>
+          :class="{
+            'player-mode-listRandom': playMode === 'listRandom', 
+            'player-mode-singleCycle': playMode === 'singleCycle'
+          }">
+        </div>
         <div @click="preControl" class="player-pre background"></div>
         <div @click="playControl" class="player-pause background" :class="{'player-play':!playStatus}"></div>
         <div @click="nextControl" class="player-next background"></div>

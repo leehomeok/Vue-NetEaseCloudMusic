@@ -80,18 +80,15 @@
     mounted(){
       var w = window
       window.onscroll = ()=> {
-        throttle(() => {
-          console.log('scroll')
-          if (this.$route.name == 'comment') {
-            if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
-              console.log(this.more ? '加载中': '没有了')
-              if (this.more) {
-                this.curruntPage++
-                this.getData()
-              }
+        if (this.$route.name == 'comment') {
+          if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
+            console.log(this.more ? '加载中': '没有了')
+            if (this.more) {
+              this.curruntPage++
+              this.getData()
             }
           }
-        }, 200)
+        }
       }
       this.getData();
     },

@@ -156,7 +156,7 @@
           name: songMsg.name, // 歌曲名称
           artists: songMsg.artists || songMsg.ar, //  演唱歌手
           album: songMsg.album || songMsg.al, //  专辑信息
-          mvid: songMsg.mvid //  mv链接ID，0为没有id
+          mvid: songMsg.mvid || songMsg.mv //  mv链接ID，0为没有id
         })
         //  设置当前播放音频在列表中的索引
         _this.$store.commit('setSongMsgIndex', index)
@@ -167,9 +167,9 @@
             songList.push({
               id: value.id, //  歌曲id
               name: value.name, // 歌曲名称
-              artists: value.artists, //  演唱歌手
-              album: value.album, //  专辑信息
-              mvid: value.mvid //  mv链接ID，0为没有id
+              artists: value.artists || value.ar, //  演唱歌手
+              album: value.album || value.al, //  专辑信息
+              mvid: value.mvid || value.mv //  mv链接ID，0为没有id
             })
           })
           _this.$store.commit('setPlaylist', {

@@ -154,13 +154,12 @@ var store = {
 						state.songMsg = payload
 						//  异步请求获取歌曲的URL
 						var url = `nodeApi/music/url?id=${payload.id}`
-						axios
-								.get(url, {})
-								.then(res => {
-										let data = res.data.data
-										state.audioDomElement.src = data[0].url
-										commit('playControl')
-								})
+						axios.get(url, {}).then(res => {
+							// debugger
+							let data = res.data.data
+							state.audioDomElement.src = data[0].url
+							commit('playControl')
+						})
 						//  加载歌曲歌词
 						dispatch('loadLyric', payload.id)
 				},
@@ -169,95 +168,71 @@ var store = {
 						state
 				}, lyricId) {
 						var url = `/nodeApi/lyric?id=${lyricId}`
-						axios
-								.get(url, {})
-								.then(res => {
-										if (res.status === 200) {
-												var data = res.data
-												if (data.code === 200) {
-														var timeReg = /\[\d\d:\d\d\.?\d*\]/g //  匹配时间段，如[00:14.879]
-														var timeFormatReg = /\d\d:\d\d\.?\d*/g //  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
-														var lyric = [] // 歌词
-														var lyricTranslate = [] //  翻译
-														var times
-														if (data.nolyric) {
-																//  纯音乐
-																state
-																		.lyricArr
-																		.push({lyric: '纯音乐，请欣赏', noLyric: true})
-																state.currentLyricArrIndex = 0
-																return
-														}
-														if (data.uncollected) {
-																//  暂无歌词
-																state
-																		.lyricArr
-																		.push({lyric: '抱歉，暂无歌词', uncollected: true})
-																state.currentLyricArrIndex = 0
-																return
-														}
-														times = data
-																.lrc
-																.lyric
-																.match(timeReg) //  时间段
-														if (times == null) {
-																//  不支持时间轴滚动
-																state
-																		.lyricArr
-																		.push({lyric: '抱歉，该歌词不支持滚动', unScroll: true})
-																state.currentLyricArrIndex = 0
-																return
-														}
-														data
-																.lrc
-																.lyric
-																.split('\n')
-																.forEach(val => { // 歌词
-																		if (timeReg.test(val)) {
-																				lyric.push({
-																						lyric: val.replace(timeReg, ''),
-																						time: val
-																				})
-																		}
-																})
-														// 过滤[00:14.879][00:16.557]双时间匹配的歌词,只取开始时间
-														lyric.forEach((value, index) => { // 时间的格式化以及加入列表
-																value.times = value
-																		.time
-																		.match(timeFormatReg)[0]
-																let min = value
-																		.times
-																		.split(':')[0] //  获取分钟
-																let sec = value
-																		.times
-																		.split(':')[1] //  获取秒
-																value.time = min * 60 + sec * 1 // 先把时间字符串转化为数字再进行叠加
+						axios.get(url, {}).then(res => {
+							if (res.status === 200) {
+									var data = res.data
+									if (data.code === 200) {
+											var timeReg = /\[\d\d:\d\d\.?\d*\]/g //  匹配时间段，如[00:14.879]
+											var timeFormatReg = /\d\d:\d\d\.?\d*/g //  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
+											var lyric = [] // 歌词
+											var lyricTranslate = [] //  翻译
+											var times
+											if (data.nolyric) {
+													//  纯音乐
+													state.lyricArr.push({lyric: '纯音乐，请欣赏', noLyric: true})
+													state.currentLyricArrIndex = 0
+													return
+											}
+											if (data.uncollected) {
+													//  暂无歌词
+													state.lyricArr.push({lyric: '抱歉，暂无歌词', uncollected: true})
+													state.currentLyricArrIndex = 0
+													return
+											}
+											times = data.lrc.lyric.match(timeReg) //  时间段
+											if (times == null) {
+													//  不支持时间轴滚动
+													state.lyricArr.push({lyric: '抱歉，该歌词不支持滚动', unScroll: true})
+													state.currentLyricArrIndex = 0
+													return
+											}
+											data.lrc.lyric.split('\n').forEach(val => { // 歌词
+												if (timeReg.test(val)) {
+														lyric.push({
+																lyric: val.replace(timeReg, ''),
+																time: val
 														})
-														if (data.tlyric.lyric != null) { // 翻译,根据原语言时间来匹配翻译
-																lyricTranslate = data
-																		.tlyric
-																		.lyric
-																		.split('\n')
-																for (var i = 0; i < lyric.length; i++) {
-																		let reg = new RegExp(lyric[i].times) // 将时间作为正则匹配对象,与\[\d\d:\d\d\.?\d*\]保持一致
-																		for (var j = 0; j < lyricTranslate.length; j++) {
-																				if (reg.test(lyricTranslate[j])) { // 匹配出对应时间的翻译
-																						lyric[i].translateLyric = lyricTranslate[j].replace(timeReg, '') //  去除时间
-																						continue
-																				}
-																		}
-																}
-														}
-														lyric.forEach((value, index) => { //  过滤空白歌词
-																if (value.lyric === '') {
-																		lyric.splice(index, 1)
-																}
-														})
-														state.lyricArr = lyric
-														state.currentLyricArrIndex = 0
 												}
-										}
-								})
+											})
+											// 过滤[00:14.879][00:16.557]双时间匹配的歌词,只取开始时间
+											lyric.forEach((value, index) => { // 时间的格式化以及加入列表
+												value.times = value.time.match(timeFormatReg)[0]
+												let min = value.times.split(':')[0] //  获取分钟
+												let sec = value.times.split(':')[1] //  获取秒
+												value.time = min * 60 + sec * 1 // 先把时间字符串转化为数字再进行叠加
+											})
+											if (data.tlyric.lyric != null) { // 翻译,根据原语言时间来匹配翻译
+													lyricTranslate = data.tlyric.lyric.split('\n')
+													for (var i = 0; i < lyric.length; i++) {
+															let reg = new RegExp(lyric[i].times) // 将时间作为正则匹配对象,与\[\d\d:\d\d\.?\d*\]保持一致
+															for (var j = 0; j < lyricTranslate.length; j++) {
+																	if (reg.test(lyricTranslate[j])) { // 匹配出对应时间的翻译
+																			lyric[i].translateLyric = lyricTranslate[j].replace(timeReg, '') //  去除时间
+																			continue
+																	}
+															}
+													}
+											}
+											lyric.forEach((value, index) => { //  过滤空白歌词
+													if (value.lyric === '') {
+															lyric.splice(index, 1)
+													}
+											})
+											state.lyricArr = lyric
+											state.currentLyricArrIndex = 0
+									}
+							}
+					})
 				}
 		},
 		mutations: {
@@ -280,9 +255,7 @@ var store = {
 				},
 				playControl(state) {
 						//  播放控制
-						state
-								.audioDomElement
-								.play()
+						state.audioDomElement.play()
 						state.playStatus = true
 				},
 				pauseControl(state) {
@@ -300,10 +273,7 @@ var store = {
 				},
 				removeItemFromPlaylist(state, index) {
 						//  从播放列表中移除一个元素
-						state
-								.playlist
-								.list
-								.splice(index, 1)
+						state.playlist.list.splice(index, 1)
 				},
 				setCurrentLyricArrIndex(state, time) {
 						if (state.lyricArr.length === 0) { //歌词为空的情况下，暂时不做任何处理

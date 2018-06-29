@@ -129,13 +129,14 @@
           })
           return
         }
+        // debugger
         //  设置播放的音频信息
         this.$store.dispatch('setSongMsg', {
           id: songMsg.id, //  歌曲id
           name: songMsg.name, // 歌曲名称
-          artists: songMsg.ar, //  演唱歌手
-          album: songMsg.al, //  专辑信息，主要用于封面图及背景高斯模糊
-          mvid: songMsg.mv //  mv链接ID，0为没有id
+          artists: songMsg.artists || songMsg.ar, //  演唱歌手
+          album: songMsg.album || songMsg.al, //  专辑信息，主要用于封面图及背景高斯模糊
+          mvid: songMsg.mv || songMsg.mvid //  mv链接ID，0为没有id
         })
         //  设置当前播放音频在列表中的索引
         this.$store.commit('setSongMsgIndex', index)
