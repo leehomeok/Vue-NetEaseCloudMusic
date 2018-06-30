@@ -61,8 +61,13 @@ const Account = resolve => {
   })
 }
 const SingerType = resolve => {
-  require.ensure(['@/components/singerType.vue'], () => {
-    resolve(require('@/components/singerType.vue'))
+  require.ensure(['@/components/SingerType.vue'], () => {
+    resolve(require('@/components/SingerType.vue'))
+  })
+}
+const SingerList = resolve => {
+  require.ensure(['@/components/SingerList.vue'], () => {
+    resolve(require('@/components/SingerList.vue'))
   })
 }
 
@@ -149,6 +154,10 @@ const router = new Router({
       path: '/singer-type',
       component: SingerType
     },
+    {
+      path: '/singer-list',
+      component: SingerList
+    }
   ]
 })
 

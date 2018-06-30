@@ -17,6 +17,7 @@
          :key="index"
          class="cell-group">
         <Cell  is-link
+          @click.native="goList(item)"
           v-for="item in list" 
           :key="item.label"
           :title="item.label">
@@ -65,6 +66,16 @@ export default {
     })
     return{
       singerList
+    }
+  },
+  methods: {
+    goList(item) {
+      this.$router.push({
+        path:'/singer-list',
+        query:{
+          id: item.value
+        }
+      })
     }
   }
 }

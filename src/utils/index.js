@@ -31,7 +31,8 @@ export function getScrollHeight() {
   if (document.documentElement) {
       documentScrollHeight = document.documentElement.scrollHeight;
   }
-  scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;    return scrollHeight;
+  scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;   
+  return scrollHeight;
 }
 
 export function throttle (fn, delay) {

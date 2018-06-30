@@ -577,7 +577,7 @@
 
           let P = (id) => {
             return new Promise((resolve, reject) => {
-              axios.get('/nodeApi/dj/recommend/type?type='+ id ).then(res => {
+              axios.get('/nodeApi/dj/recommend/type?type='+ id).then(res => {
                 resolve(res);
               });
             })
